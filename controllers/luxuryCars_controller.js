@@ -9,7 +9,19 @@ var burger = require("../models/luxuryCar.js");
 router.get("/", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function of luxuryCars_controller.js")
-  luxuryCar.selectAll(function(data) {
+  luxuryCar.selectAllCars(function(data) {
+    var hbsObject = {
+      cars: data
+    };
+    console.log(hbsObject);
+    res.render("index", hbsObject);
+  });
+});
+
+router.get("/api/my_choice/:id", function(req, res) {
+    //adding console.log to make debug easier for the team
+    console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
+  luxuryCar.selectWhere(function(data) {
     var hbsObject = {
       cars: data
     };
@@ -20,7 +32,7 @@ router.get("/", function(req, res) {
 
 router.post("/api/cars", function(req, res) {
     console.log("Hit the /api/cars route inside luxuryCars_controller.js with res ",res.body)
-  luxuryCar.insert([
+  luxuryCar.create([
     "car_Year", "car_Make","car_Model","transmission_Type","start_DA","end_DA","car_Miles","car_Availability","car_Rates","car_Condition","car_ImageURL"
   ], [
     req.body.car_Year, req.body.car_Make,req.body.car_Model, req.body.transmission_Type, req.body.start_DA, req.body.end_DA, req.body.car_Miles, req.body.car_Availability, req.body.car_Rates, req.body.car_Condition,req.body.car_ImageURL
@@ -33,7 +45,7 @@ router.post("/api/cars", function(req, res) {
 router.put("/api/cars/:id", function(req, res) {
     //   console.log("Hit the /api/cars/:id route inside luxuryCars_controller.js with id = ",req.params.id);
   var condition = "id = " + req.params.id;
-  luxuryCar.update({
+  luxuryCar.updateAvail({
     available: req.body.car_Availability
   }, condition, function(result) {
     if (result.changedRows == 0) {
