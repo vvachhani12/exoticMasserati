@@ -3,7 +3,11 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (luxuryCar.js) to use its database functions.
-var burger = require("../models/luxuryCar.js");
+var luxuryCar = require("../models/luxuryCar.js");
+
+
+// You can use the below for debug purposes if needed
+// var luxuryCar = require("../config/orm.js")
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
