@@ -25,7 +25,7 @@ selectWhere: function(carMake, cb) {
   },
 
 // adding a car to the database
-  create: function(carYear, carMake, carModel, transmission, startDate, endDAte, miles, cb) {
+  createCar: function(carYear, carMake, carModel, transmission, startDate, endDAte, miles, cb) {
     var queryString = "INSERT INTO cars SET ?";
     console.log(queryString);
     connection.query(queryString,
@@ -37,7 +37,7 @@ selectWhere: function(carMake, cb) {
           transmission_Type: transmission, 
           start_DA: startDate, 
           end_DA: endDAte, 
-          car_Miles: "1000"
+          car_Miles: miles
         },
         function(err, result) {
       if (err) throw err;
