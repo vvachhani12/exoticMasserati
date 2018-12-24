@@ -13,7 +13,7 @@ var luxuryCar = require("../models/luxuryCar.js");
 router.get("/", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function of luxuryCars_controller.js")
-  luxuryCar.selectAllCars(function(data) {
+  luxuryCar.selectAll(function(data) {
     var hbsObject = {
       cars: data
     };
