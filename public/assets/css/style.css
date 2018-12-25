@@ -1,0 +1,20 @@
+.box{
+    height: 350px;
+    width: 600px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 150px;
+    margin-bottom: 200px;
+    color: black;
+}
+
+label{
+    color: black;
+    font-size: 80%;
+}
+
+nav{
+    background: black;
+    height: 80px;
+}
+
