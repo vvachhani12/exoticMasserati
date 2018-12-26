@@ -11,6 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "body-parser": "^1.18.3",
+>>>>>>> 4ced7580da13c6f0e74bcda7131cf86308931f0a
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "mysql": "^2.16.0"
