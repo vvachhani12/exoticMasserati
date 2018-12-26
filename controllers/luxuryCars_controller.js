@@ -5,11 +5,15 @@ var router = express.Router();
 // Import the model (luxuryCar.js) to use its database functions.
 var luxuryCar = require("../models/luxuryCar.js");
 
+
+// You can use the below for debug purposes if needed
+// var luxuryCar = require("../config/orm.js")
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function of luxuryCars_controller.js")
-  luxuryCar.selectAllCars(function(data) {
+  luxuryCar.selectAll(function(data) {
     var hbsObject = {
       cars: data
     };
