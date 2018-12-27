@@ -18,3 +18,19 @@ nav{
     height: 80px;
 }
 
+#card1{
+    height: 22%;
+    width: 42%;
+    line-height: 0.5;
+}
+
+#card2{
+    height: 38%;
+    width: 45%;
+    float: right;
+}
+
+.card-content{
+    font-size: 30px;
+    line-height: 1;
+}
