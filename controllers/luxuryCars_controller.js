@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require("path");
 
 var router = express.Router();
 
@@ -18,8 +19,22 @@ router.get("/", function(req, res) {
       cars: data
     };
     console.log(hbsObject);
-    res.render("index", hbsObject);
+    // res.render("index", hbsObject);
+    res.sendFile(path.join(__dirname, "../views/index.html"));
   });
+});
+
+router.get("/questionnaire", function(req, res) {
+  //adding console.log to make debug easier for the team
+  console.log("inside the router.get function of luxuryCars_controller.js")
+luxuryCar.selectAll(function(data) {
+  var hbsObject = {
+    cars: data
+  };
+  console.log(hbsObject);
+  // res.render("index", hbsObject);
+  res.sendFile(path.join(__dirname, "../views/questionnaire.html"));
+});
 });
 
 router.get("/api/my_choice/:id", function(req, res) {
@@ -31,6 +46,8 @@ router.get("/api/my_choice/:id", function(req, res) {
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
+    // res.render(path)
+
   });
 });
 
