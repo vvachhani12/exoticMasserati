@@ -25,7 +25,7 @@ router.get("/", function(req, res) {
 router.get("/api/my_choice/:id", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
-  luxuryCar.selectWhere(function(data) {
+  luxuryCar.selectSome(function(data) {
     var hbsObject = {
       cars: data
     };
