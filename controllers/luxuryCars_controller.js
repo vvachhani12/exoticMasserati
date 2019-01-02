@@ -24,6 +24,19 @@ router.get("/", function(req, res) {
   // });
 });
 
+router.get("/mainform", function(req, res) {
+  //adding console.log to make debug easier for the team
+  // console.log("inside the router.get function of luxuryCars_controller.js")
+// luxuryCar.selectAll(function(data) {
+//   var hbsObject = {
+//     cars: data
+//   };
+  // console.log(hbsObject);
+  res.render("mainform");
+  // res.sendFile(path.join(__dirname, "../views/index"));
+// });
+});
+
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
   console.log("inside the router.get function of luxuryCars_controller.js")
