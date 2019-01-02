@@ -37,9 +37,7 @@ nav{
 
 body {
     font-family: 'Rajdhani', sans-serif;
-    
-    
-
+    /* background-image: url("./assets/img/parallax2.png"); */
 }
 
 h1 {
@@ -56,4 +54,8 @@ h1 {
     font-family: 'Julius Sans One', sans-serif;
 
     
+}
+
+.clientInfo{
+    background-color: aliceblue;
 }

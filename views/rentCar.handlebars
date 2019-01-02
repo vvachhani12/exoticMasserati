@@ -25,14 +25,22 @@
         </div>
     </nav>
 
-    
+    <!--Parallax # 1-->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="./assets/img/parallax2.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
+
+	<div class="container">
+        
     {{#each cars}}
 
-    <div class="card-panel hoverable card center-align card-panel teal lighten-2">
-        <div class="row">
+    {{!-- <div class="card-panel hoverable card center-align card-panel teal lighten-2"> --}}
+        {{!-- <div class="row"> --}}
             <!--Card One Leads to Questionnaire-->
-            <div class="col s6 m7" id="card1">
-                <div class="card" id="carDisplay">
+            {{!-- <div class="col s6 m7" id="card1"> --}}
+                <div class="card-panel hoverable center-align teal lighten-2" id="carDisplay">
                     <ul>
                             {{#unless car_Availability}}
                                 <li>
@@ -46,10 +54,11 @@
                             {{/unless}}
                     </ul>
                 </div>   
-            </div>
-        </div>
-    </div>
+            {{!-- </div> --}}
+        {{!-- </div> --}}
+    {{!-- </div> --}}
     {{/each}}
+    </div>
 
     <!--Parallax # 1-->
     <div class="parallax-container">
