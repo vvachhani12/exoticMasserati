@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
       cars: data
     };
     console.log(hbsObject);
-    res.render("index", hbsObject);
+    res.render("mainform", hbsObject);
   });
 });
 
