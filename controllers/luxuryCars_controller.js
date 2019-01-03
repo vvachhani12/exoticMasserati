@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require("path");
 
 var router = express.Router();
 
@@ -13,24 +14,67 @@ var luxuryCar = require("../models/luxuryCar.js");
 router.get("/", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function of luxuryCars_controller.js")
+  // luxuryCar.selectAll(function(data) {
+  //   var hbsObject = {
+  //     cars: data
+  //   };
+    // console.log(hbsObject);
+    res.render("index");
+    // res.sendFile(path.join(__dirname, "../views/index"));
+  // });
+});
+
+router.get("/mainform", function(req, res) {
+  //adding console.log to make debug easier for the team
+  // console.log("inside the router.get function of luxuryCars_controller.js")
+// luxuryCar.selectAll(function(data) {
+//   var hbsObject = {
+//     cars: data
+//   };
+  // console.log(hbsObject);
+  res.render("mainform");
+  // res.sendFile(path.join(__dirname, "../views/index"));
+// });
+});
+
+router.get("/questionnaire", function(req, res) {
+  //adding console.log to make debug easier for the team
+  console.log("inside the router.get function of luxuryCars_controller.js")
+  // luxuryCar.selectAll(function(data) {
+  //   var hbsObject = {
+  //     cars: data
+  //   };
+    // console.log(hbsObject);
+    res.render("questionnaire");
+    // res.sendFile(path.join(__dirname, "../views/questionnaire.html"));
+  // });
+});
+
+router.get("/rentCar", function(req, res) {
+  //adding console.log to make debug easier for the team
+  console.log("inside the router.get function of luxuryCars_controller.js")
   luxuryCar.selectAll(function(data) {
-    var hbsObject = {
+    console.log("Data from controller: "+data)
+    var carObject = {
       cars: data
     };
-    console.log(hbsObject);
-    res.render("mainform", hbsObject);
+    console.log("Object: "+carObject);
+    res.render("rentCar", carObject);
+    // res.sendFile(path.join(__dirname, "../views/rentCar.html"));
   });
 });
 
 router.get("/api/my_choice/:id", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
-  luxuryCar.selectSome(function(data) {
+    luxuryCar.selectSome(function(data) {
     var hbsObject = {
       cars: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
+    // res.render(path)
+
   });
 });
 
