@@ -1,0 +1,59 @@
+.box{
+    height: 350px;
+    width: 600px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 150px;
+    margin-bottom: 200px;
+    color: black;
+}
+
+label{
+    color: black;
+    font-size: 80%;
+}
+
+nav{
+    background: black;
+    height: 80px;
+}
+
+#card1{
+    height: 22%;
+    width: 42%;
+    line-height: 0.5;
+}
+
+#card2{
+    height: 38%;
+    width: 45%;
+    float: right;
+}
+
+.card-content{
+    font-size: 30px;
+    line-height: 1;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    
+    
+
+}
+
+h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Signika', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
+
+}
+.bar {
+    font-family: 'Rajdhani', sans-serif;
+    font-family: 'Signika', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
+
+    
+}
