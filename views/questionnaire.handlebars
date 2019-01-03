@@ -1,18 +1,32 @@
-  <!--Nav Bar-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Questionaire</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Import style.css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>	
+</head>
+
+<body>
+    <!--Nav Bar-->
     <nav>
         <div class="nav-wrapper">
             <a href="#" class="brand-logo bar">carSwap</a>
             <ul id="navBar" class="right hide-on-med-and-down">
-                <li><a href="index.html">Link to home</a></li>
-                <li><a href="">Link</a></li>
-                <li><a href="">Link</a></li>
+                <li><a href="/">Link To Home</a></li>
+                <li><a href="./rentCar">Rent A Car</a></li>
+                <li><a href="./mainform">List Your Car</a></li>
             </ul>
         </div>
-    </nav>
+    </nav>    
 
-    
     <!--Contact Info Field-->
-	<div class="container">
+	<div class="container hoverable" id="clientInfo">
         <h1>Luxury Car Rental</h1>
             <div class="row">
                 <form class="col s12">
@@ -53,9 +67,9 @@
             <img src="./assets/img/parallax2.jpg" alt="" class="responsive-img">
         </div>
     </div>
-    
+        
     <!--Questionnaire-->
-      <div class="container box blue-grey lighten-5 z-depth-5">   
+    <div class="container hoverable box blue-grey lighten-5 z-depth-5">   
         <div class="row" id="questionnaire">   
             <!--Question #1-->
             <form class="col s12" action="#">
@@ -230,8 +244,6 @@
             </button>
         </div>
     </div> 
-
-
 
     <!--Footer-->
     <footer class="page-footer black">
