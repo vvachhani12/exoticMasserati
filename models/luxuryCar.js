@@ -29,6 +29,17 @@ var cars = {
   //       cb(res);
   //     });
   //   }
+
+  getAllMake: function(cb){
+    orm.getAllMake(function(res){
+      cb(res);
+    });
+  },
+  getAllModel: function(carMake, cb) {
+    orm.getAllModel(carMake, function(res){
+      cb(res);
+    });
+  }
   };
 
   module.exports = cars;
