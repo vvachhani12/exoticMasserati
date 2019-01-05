@@ -25,16 +25,18 @@ router.get("/", function(req, res) {
 });
 
 router.get("/mainform", function(req, res) {
-  //adding console.log to make debug easier for the team
-  // console.log("inside the router.get function of luxuryCars_controller.js")
-// luxuryCar.selectAll(function(data) {
-//   var hbsObject = {
-//     cars: data
-//   };
-  // console.log(hbsObject);
-  res.render("mainform");
-  // res.sendFile(path.join(__dirname, "../views/index"));
-// });
+  console.log("inside the router.get function of luxuryCars_controller.js")
+  luxuryCar.getAllMake(function(data){
+    console.log("Data from controller: "+ data);
+    var makeObject = {
+      makes: data
+    };
+    console.log("Object: " + makeObject);
+    res.render("mainform", makeObject);
+  });
+
+  
+ 
 });
 
 router.get("/questionnaire", function(req, res) {
@@ -102,6 +104,14 @@ router.put("/api/cars/:id", function(req, res) {
     } else {
       res.status(200).end();
     }
+  });
+});
+
+router.get("/api/getAllModel/:make", function(req, res){
+  
+
+  luxuryCar.getAllModel(req.params.make, function(result){
+    res.json(result);
   });
 });
 
