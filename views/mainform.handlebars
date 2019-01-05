@@ -1,13 +1,13 @@
 <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo bar">carSwap</a>
-            <ul id="navBar" class="right hide-on-med-and-down">
-                <li><a href="index.html">Link to home</a></li>
-                <li><a href="">Link</a></li>
-                <li><a href="">Link</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo bar">carSwap</a>
+        <ul id="navBar" class="right hide-on-med-and-down">
+            <li><a href="index.html">Link to home</a></li>
+            <li><a href="">Link</a></li>
+            <li><a href="">Link</a></li>
+        </ul>
+    </div>
+</nav>
 
 
 
@@ -24,12 +24,19 @@
                         <div class="row">
 
                             <div class="input-field col s4">
-                                <input id="car_make" type="text" class="validate">
-                                <label for="car_make">Car Make</label>
+                                <select id="car_make">
+                                    <option value="" disabled selected>Make</option>
+                                    {{#each makes}}
+                                    <option value="{{this.car_Make}}">{{this.car_Make}}</option>
+                                    {{/each}}
+                                </select>
+                                <label>Car Make</label>
                             </div>
                             <div class="input-field col s4">
-                                <input id="car_model" type="text" class="validate">
-                                <label for="car_model">Car Model</label>
+                                <select id="car_model">
+                                    <option value="" disabled selected>Model</option>
+                                </select>
+                                <label>Car Model</label>
                             </div>
                             <div class="input-field col s4">
                                 <input id="car_year" type="text" class="validate">
@@ -38,8 +45,12 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s4">
-                                <input id="transmission_type" type="text" class="validate">
-                                <label for="transmission_type">Transmission Type</label>
+                                <select id="transmission_type">
+                                    <option value="" disabled selected>Transmission</option>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                </select>
+                                <label>Transmission Type</label>
                             </div>
                             <div class="input-field col s4">
                                 <select id="car_condition">
@@ -79,55 +90,73 @@
                                 <label for="end_date">End Date</label>
                             </div>
                             <div class="input-field col s4">
-                                <input id="availability" type="text" class="validate">
-                                <label for="availability">Availability</label>
+                                <select id="availability">
+                                    <option value="" disabled selected>Availability</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <label>Is Available?</label>
                             </div>
                         </div>
                     </div>
                     <div class="card-action">
-                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
- <footer class="page-footer black">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
+<footer class="page-footer black">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                </ul>
             </div>
         </div>
+    </div>
 
-        <div class="footer-copyright">
-            <div class="container">
-                © 2019 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
+    <div class="footer-copyright">
+        <div class="container">
+            © 2019 Copyright Text
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
         </div>
-        
-    </footer>
+    </div>
+
+</footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var select_elems = document.querySelectorAll('select');
-        var select_instances = M.FormSelect.init(select_elems);
-        var picker_elems = document.querySelectorAll('.datepicker');
-        var picker_instances = M.Datepicker.init(picker_elems);
+    $(document).ready(function () {
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+
+        var makeSelect = $('#car_make');
+        makeSelect.change(() => {
+            $.getJSON('/api/getAllModel/' + makeSelect.val(), function (data) {
+                $('#car_model').empty();
+                $('#car_model').html('<option value="" disabled selected>Model</option>')
+                $.each(data, (index, element) => {
+                    let option = $('<option></option>')
+                        .attr('value', element.car_Model)
+                        .text(element.car_Model);
+                    $('#car_model').append(option);
+                });
+                $('#car_model').formSelect();
+            });
+        });
     });
+
 </script>
