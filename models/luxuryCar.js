@@ -14,11 +14,11 @@ var cars = {
       },
 
 
-    create: function(carYear, carMake, carModel, transmission, startDate, endDAte, miles, cb) {
-      orm.createCar(carYear, carMake, carModel, transmission, startDate, endDAte, miles, function(res) {
-        cb(res);
-      });
-    },
+      create: function(carYear, carMake,carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, cb) {
+        orm.createCar(carYear, carMake,carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, function(res) {
+          cb(res);
+        });
+      },
     updateOne: function(startDate, endDate, thisID, cb) {
       orm.updateAvail(startDate, endDate, thisID, function(res) {
         cb(res);

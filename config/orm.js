@@ -25,26 +25,40 @@ selectWhere: function(carMake, cb) {
   },
 
 // adding a car to the database
-  createCar: function(carYear, carMake, carModel, transmission, startDate, endDAte, miles, cb) {
+//CREATE CAR FUNCTION IN ORM.JS
+  createCar: function(carYear, carMake, carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, cb) {
+    console.log("inside createCar function of orm.js")
     var queryString = "INSERT INTO cars SET ?";
     console.log(queryString);
     connection.query(queryString,
-        
         {
           car_Year: carYear,
           car_Make: carMake,
           car_Model: carModel, 
-          transmission_Type: transmission, 
-          start_DA: startDate, 
-          end_DA: endDAte, 
-          car_Miles: miles
+          transmission_Type: transmission,
+          start_DA: startDate,
+          end_DA: endDate, 
+          car_Miles: miles,
+          car_Availabilty: availability,
+          car_Rates: carRate,
+          car_Condition: condition,
+          car_ImageURL: carImg
         },
         function(err, result) {
+          // jemall added console.log below
       if (err) throw err;
       cb(result)
       console.log(result);
     });
   },
+
+
+
+
+
+
+
+
 
   //updating the availabilty of a car 
 //   all submissions need to be in this format '2018-01-01'
