@@ -51,14 +51,7 @@ var orm = {
       cb(result)
       console.log(result);
     });
-
-
-
-
-
-
-
-
+  },
 
   //updating the availabilty of a car 
   //   all submissions need to be in this format '2018-01-01'
