@@ -8,6 +8,8 @@
             </ul>
         </div>
     </nav>
+
+
 <div class="container">
     <div class="row">
         <div class="col s12">
@@ -20,12 +22,19 @@
                     <div class="card-content">
                         <div class="row">
                             <div class="input-field col s4">
-                                <input id="car_make" type="text" class="validate">
-                                <label for="car_make">Car Make</label>
+                                <select id="car_make">
+                                    <option value="" disabled selected>Make</option>
+                                    {{#each makes}}
+                                    <option value="{{this.car_Make}}">{{this.car_Make}}</option>
+                                    {{/each}}
+                                </select>
+                                <label>Car Make</label>
                             </div>
                             <div class="input-field col s4">
-                                <input id="car_model" type="text" class="validate">
-                                <label for="car_model">Car Model</label>
+                                <select id="car_model">
+                                    <option value="" disabled selected>Model</option>
+                                </select>
+                                <label>Car Model</label>
                             </div>
                             <div class="input-field col s4">
                                 <input id="car_year" type="text" class="validate">
@@ -34,8 +43,12 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s4">
-                                <input id="transmission_type" type="text" class="validate">
-                                <label for="transmission_type">Transmission Type</label>
+                                <select id="transmission_type">
+                                    <option value="" disabled selected>Transmission</option>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                </select>
+                                <label>Transmission Type</label>
                             </div>
                             <div class="input-field col s4">
                                 <select id="car_condition">
@@ -74,21 +87,26 @@
                                 <label for="end_date">End Date</label>
                             </div>
                             <div class="input-field col s4">
-                                <input id="availability" type="text" class="validate">
-                                <label for="availability">Availability</label>
+                                <select id="availability">
+                                    <option value="" disabled selected>Availability</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                                <label>Is Available?</label>
                             </div>
                         </div>
                     </div>
                     <div class="card-action">
-                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                        <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
 </div>
+
  <footer class="page-footer black">
         <div class="container">
             <div class="row">

@@ -13,6 +13,7 @@ router.get("/", function(req, res) {
 });
 router.get("/mainform", function(req, res) {
   res.render("mainform");
+
 });
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
@@ -77,5 +78,13 @@ router.put("/api/cars/:id", function(req, res) {
 // Export routes for server.js to use.
 module.exports = router;
 
+
+router.get("/api/getAllModel/:make", function(req, res){
+  
+
+  luxuryCar.getAllModel(req.params.make, function(result){
+    res.json(result);
+  });
+});
 
 
