@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Questionaire</title>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Import style.css -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>	
-</head>
-
 <body>
     <!--Nav Bar-->
     <nav>
@@ -79,30 +65,37 @@
                 <div class="row" id="q1">
                     <p>
                         <label>
-                            <input class="with-gap" name="group1" type="radio"  />
-                            <span value="1">Speed</span>
+                            <input class="with-gap" value="4" name="group1" id="a1" type="radio"  />
+                            <span>Speed</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group1" type="radio"  />
-                            <span value="2">Flair</span>
+                            <input class="with-gap" value="3" name="group1" id = "a2" type="radio"  />
+                            <span >Flair</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group1" type="radio"  />
-                            <span value="3">Comfort</span>
+                            <input class="with-gap" value="2" name="group1" id = "a3"  type="radio"  />
+                            <span>Comfort</span>
                         </label>
                     </p>                       
 
                     <p>
                         <label>
-                            <input class="with-gap" name="group1" type="radio"  />
-                            <span value="4">Detail</span>
+                            <input class="with-gap" value="1" name="group1" id = "a4" type="radio"  />
+                            <span>Detail</span>
                         </label>
                     </p>
                 </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
             </form>
 
             <!--Question #2-->
@@ -111,17 +104,24 @@
                 <div class="row">
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="1">Countryside! I need open spaces to speed</span>
+                            <input class="with-gap" value="4" name="group2" id = "b1" type="radio"  />
+                            <span>Countryside! I need open spaces to speed</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">City! I love people checking out my sweet ride!</span>
+                            <input class="with-gap" value="2" name="group2" id = "b2" type="radio"  />
+                            <span>City! I love people checking out my sweet ride!</span>
                         </label>
                     </p>
                 </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
             </form>
             
             <!--Question #3-->
@@ -130,29 +130,36 @@
                 <div class="row">
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="1">I'm a secret agent</span>
+                            <input class="with-gap" value="4" id = "c1" name="group2" type="radio"  />
+                            <span>I'm a secret agent</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">I'm classy and sophisticated</span>
+                            <input class="with-gap" value="2" id = "c2" name="group2" type="radio"  />
+                            <span>I'm classy and sophisticated</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">I'm not all ego</span>
+                            <input class="with-gap" value="3" id = "c3" name="group2" type="radio"  />
+                            <span>I'm not all ego</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">I'm a very busy person</span>
+                            <input class="with-gap" value="1" id = "c4" name="group2" type="radio"  />
+                            <span>I'm a very busy person</span>
                         </label>
                     </p>
                 </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
             </form>
 
             <!--Question #4-->
@@ -161,29 +168,25 @@
                 <div class="row">
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="1">Pearl White</span>
+                            <input class="with-gap" value="4" id = "d1" name="group2" type="radio"  />
+                            <span>Flashy colors</span>
                         </label>
                     </p>
                     <p>
                         <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">Cherry Red</span>
+                            <input class="with-gap" value="2" name="group2" id = "d2" type="radio"  />
+                            <span>Classic colors</span>
                         </label>
                     </p>
-                    <p>
-                        <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">Charcoal Grey</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">Emerald Green</span>
-                        </label>
-                    </p>
+                
                 </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
             </form>
 
             <!--Question #5-->
@@ -192,58 +195,43 @@
                     <div class="row">
                         <p>
                             <label>
-                                <input class="with-gap" name="group2" type="radio"  />
-                                <span value="1">Any car with a massage seat is classified as luxury.</span>
+                                <input class="with-gap" value="4" name="group2" id = "e1" type="radio"  />
+                                <span>Any car with a massage seat is classified as luxury.</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input class="with-gap" name="group2" type="radio"  />
-                                <span value="2">Something sporty, fast, & sexy.</span>
+                                <input class="with-gap" value="3" name="group2" id = "e2" type="radio"  />
+                                <span>Something sporty, fast, & sexy.</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input class="with-gap" name="group2" type="radio"  />
-                                <span value="2">A stunning look with all the features.</span>
+                                <input class="with-gap" value="2" name="group2" id = "e3" type="radio"  />
+                                <span>A stunning look with all the features.</span>
                             </label>
                         </p>
                         <p>
                             <label>
-                                <input class="with-gap" name="group2" type="radio"  />
-                                <span value="2">A head turner</span>
+                                <input class="with-gap" value="1" name="group2" id = "e4" type="radio"  />
+                                <span>A head turner</span>
                             </label>
                         </p>
                     </div>
+                    <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+            <button class="btn waves-effect waves-light black btn-back submit" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+                </button>
+        
                 </form>
 
             <!--Question #6-->
-            <form class="col s12" action="#"  id="q6">
-                <h5>Do you have a plus one or are we bringing the whole crew?</h5>
-                <div class="row">
-                    <p>
-                        <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="1">Plus one, just me and my bae.</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            <input class="with-gap" name="group2" type="radio"  />
-                            <span value="2">The whole crew, can't go anywhere without them.</span>
-                        </label>
-                    </p>
-                </div>
-            </form>
+            
 
             <!--Back & Next Buttons-->
-            <button class="btn waves-effect waves-light black" id="btn-back" type="back" name="action">Back
-                <i class="material-icons left">navigate_before</i>
-            </button>
-
-            <button class="btn waves-effect waves-light black" id="btn-next" type="next" name="action">Next
-                <i class="material-icons right">navigate_next</i>
-            </button>
+            
         </div>
     </div> 
 
@@ -284,7 +272,7 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
         <!-- Compiled and minified JavaScript-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+       
 
         <script>
             //Parallax Car Image Function
@@ -299,7 +287,7 @@
                         $(this).hide();
                 });
 
-                $("#btn-next").click(function(){
+                $(".btn-next").click(function(){
                     if ($("#questionnaire form:visible").next().length != 0)
                         $("#questionnaire form:visible").next().show().prev().hide();
                     else {
@@ -309,7 +297,7 @@
                     return false;
                 });
 
-                $("#btn-back").click(function(){
+                $(".btn-back").click(function(){
                     if ($("#questionnaire form:visible").prev().length != 0)
                         $("#questionnaire form:visible").prev().show().next().hide();
                     else {
@@ -318,5 +306,131 @@
                     }
                     return false;
                 });
-            });
-        </script>
+
+            $("#btn-next2").click(function(){
+                    if ($("#questionnaire form:visible").next().length != 0)
+                        $("#questionnaire form:visible").next().show().prev().hide();
+                    else {
+                        $("#questionnaire form:visible").hide();
+                        $("#questionnaire form:first").show();
+                    }
+                    return false;
+                });
+
+                $("#btn-back2").click(function(){
+                    if ($("#questionnaire form:visible").prev().length != 0)
+                        $("#questionnaire form:visible").prev().show().next().hide();
+                    else {
+                        $("#questionnaire form:visible").hide();
+                        $("#questionnaire form:last").show();
+                    }
+                    return false;
+                });
+                 
+                 
+$(".submit").on("click", function(event) {
+ event.preventDefault();
+
+if (document.getElementById('a1').checked) {
+ var rate_value = parseInt(document.getElementById('a1').value)
+}
+
+if (document.getElementById('a2').checked) {
+var rate_value = parseInt(document.getElementById('a2').value)
+}
+
+if (document.getElementById('a3').checked) {
+ var rate_value = parseInt(document.getElementById('a3').value) 
+}
+
+if (document.getElementById('a4').checked) {
+var rate_value = parseInt(document.getElementById('a4').value)
+}
+
+if (document.getElementById('b1').checked) {
+var second_value = parseInt(document.getElementById('b1').value)
+}
+
+if (document.getElementById('b2').checked) {
+var second_value = parseInt(document.getElementById('b2').value)
+}
+
+if (document.getElementById('c1').checked) {
+var third_value = parseInt(document.getElementById('c1').value)
+}
+if (document.getElementById('c2').checked) {
+var third_value = parseInt(document.getElementById('c2').value)
+}
+if (document.getElementById('c3').checked) {
+var third_value = parseInt (document.getElementById('c3').value)
+}
+if (document.getElementById('c4').checked) {
+var third_value = parseInt (document.getElementById('c4').value)
+}
+
+if (document.getElementById('d1').checked) {
+var fourth_value = parseInt(document.getElementById('d1').value)
+}
+if (document.getElementById('d2').checked) {
+var fourth_value = parseInt(document.getElementById('d2').value)
+}
+
+if (document.getElementById('e1').checked) {
+var fifth_value = parseInt(document.getElementById('e1').value)
+}
+if (document.getElementById('e2').checked) {
+var fifth_value = parseInt(document.getElementById('e2').value)
+}
+if (document.getElementById('e3').checked) {
+var  fifth_value = parseInt(document.getElementById('e3').value) 
+}
+if (document.getElementById('e4').checked) {
+var fifth_value = parseInt(document.getElementById('e4').value)
+}
+
+var sumofall = rate_value + second_value + third_value + fourth_value + fifth_value 
+
+console.log(sumofall)
+
+
+
+
+
+if(sumofall === 18 || sumofall === 19 || sumofall === 20) {
+alert("you get a masserati") 
+}
+
+if (sumofall === 18) {
+alert("you get a Tesla") 
+}
+if (sumofall === 17) {
+alert("you get a Nissan") 
+}
+
+if (sumofall === 16) {
+alert("you get an Audi R8") 
+}
+
+if (sumofall === 15) {
+alert("You get a BMW 3Series")
+}
+
+if (sumofall === 14 || sumofall === 13 || sumofall === 12) {
+alert("you get a Range Rover")
+}
+
+if (sumofall === 10 || sumofall === 11) {
+alert("you get a Bently ")
+}
+
+if (sumofall === 7|| sumofall === 8|| sumofall === 9) {
+alert("you get an Audi RS4")
+}
+
+}); 
+
+}); 
+
+
+
+ </script>
