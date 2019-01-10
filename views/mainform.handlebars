@@ -20,35 +20,44 @@
                 <form class="card-stacked" onSubmit="handleFormSubmit(this); return false;">
                     <div class="card-content">
                         <div class="row">
-                            <div class="input-field col s4">
-                                <input id="car_make" type="text" class="validate">
-                                <label for="car_make">Car Make</label>
+
+                            <div class="input-field col s12">
+                                <select id="car_make">
+                                    <option value="" disabled selected></option>
+                                    {{#each cars}}
+                                    <option value="car_Make">{{this.car_Make}} / {{this.car_Model}}</option>
+                                    {{/each}}
+                                </select>
+                                <label>Car Make: Your car must match one of our available Make / Model types</label>
                             </div>
+                        </div>
+                        <div class="row">
 
                             <div class="input-field col s4">
-                                <input id="car_model" type="text" class="validate">
-                                <label for="car_model">Car Model</label>
-                            </div>
-
-                            <div class="input-field col s4">
-                                <input id="car_year" type="text" class="validate">
-                                <label for="car_year">Car Year</label>
+                                <input id="car_year" type="text" class="datepicker_2">
+                                <label for="car_year">Car Year: What year was your car built?</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s4">
-                                <input id="transmission_type" type="text" class="validate">
+                                <select id="transmission_type">
+                                    <option value="" disabled selected></option>
+                                    <option value="Automatic">Automatic</option>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Electric">Electric</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                </select>
                                 <label for="transmission_type">Transmission Type</label>
                             </div>
                             
                             <div class="input-field col s4">
                                 <select id="car_condition">
-                                    <option value="" disabled selected>Condition</option>
+                                    <option value="" disabled selected></option>
                                     <option value="New">New</option>
                                     <option value="Excellent">Excellent</option>
                                     <option value="Good">Good</option>
-                                    <option value="Fair">Good</option>
+                                    <option value="Fair">Fair</option>
                                 </select>
                                 <label>Car Condition</label>
                             </div>
@@ -97,6 +106,19 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+    <p>test to pull for car type</p>
+      <div class="input-field col-md-6">
+      <select id="car_condition_2">
+        {{#each cars}}
+        <option value="car_Make_2">{{this.car_Make}}</option>
+        {{/each}}
+      </select>
+      <label>Car Condition</label>
+    </div>
+</div>
+</div>
  <footer class="page-footer black">
         <div class="container">
             <div class="row">
@@ -133,7 +155,7 @@
         var select_elems = document.querySelectorAll('select');
         var select_instances = M.FormSelect.init(select_elems);
         var picker_elems = document.querySelectorAll('.datepicker');
-        var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
+        var picker_instances = M.Datepicker.init(picker_elems, { selectYears: -10, format: 'yyyy-mm-dd' });
     });
     // Date picker date format needs to be 2018-01-01
 

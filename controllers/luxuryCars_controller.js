@@ -12,11 +12,23 @@ router.get("/", function(req, res) {
     res.render("index");
 });
 
+//original /mainform changing to test pull down
+// router.get("/mainform", function(req, res) {
+//   res.render("mainform");
+
+// });
+
+//New main form
 router.get("/mainform", function(req, res) {
-  res.render("mainform");
-
+  luxuryCar.selectAll(function(data) {
+    var carInformationObject = {
+      cars: data
+    };
+    console.log(carInformationObject);
+  console.log("AUTOCOMPLETE")
+  res.render("mainform", carInformationObject);
 });
-
+});
 
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
