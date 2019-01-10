@@ -24,26 +24,33 @@ var orm = {
       });
   },
 
-  // adding a car to the database
-  createCar: function (carYear, carMake, carModel, transmission, startDate, endDAte, miles, cb) {
+
+// adding a car to the database
+//CREATE CAR FUNCTION IN ORM.JS
+  createCar: function(carYear, carMake, carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, cb) {
+    console.log("inside createCar function of orm.js")
     var queryString = "INSERT INTO cars SET ?";
     console.log(queryString);
     connection.query(queryString,
-
-      {
-        car_Year: carYear,
-        car_Make: carMake,
-        car_Model: carModel,
-        transmission_Type: transmission,
-        start_DA: startDate,
-        end_DA: endDAte,
-        car_Miles: miles
-      },
-      function (err, result) {
-        if (err) throw err;
-        cb(result)
-        console.log(result);
-      });
+        {
+          car_Year: carYear,
+          car_Make: carMake,
+          car_Model: carModel, 
+          transmission_Type: transmission,
+          start_DA: startDate,
+          end_DA: endDate, 
+          car_Miles: miles,
+          car_Availabilty: availability,
+          car_Rates: carRate,
+          car_Condition: condition,
+          car_ImageURL: carImg
+        },
+        function(err, result) {
+          // jemall added console.log below
+      if (err) throw err;
+      cb(result)
+      console.log(result);
+    });
   },
 
   //updating the availabilty of a car 
@@ -85,20 +92,46 @@ var orm = {
     var queryString = "SELECT DISTINCT car_Model FROM cars WHERE ?";
     console.log(queryString);
     connection.query(queryString,
-      [
-        
         {
           car_Make: carMake
-        }
-      ],
+        },
       function (err, result) {
         if (err) throw err;
         cb(result);
         console.log(result);
       });
 
+  },
+
+  getUserByObject: function(obj, cb) {
+    let queryString = "SELECT * FROM users WHERE ?";
+    // console.log(queryString);
+    // console.log(obj);
+    connection.query(queryString,
+      obj , function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        cb(result[0]);
+      });
+  },
+
+  createUser: function(newUser, cb) {
+    let queryString = "INSERT INTO users SET ?";
+    console.log(queryString);
+    connection.query(queryString,
+      {
+        Password: newUser.password,
+        Name: newUser.name,
+        Lastname: newUser.lastname,
+        Email: newUser.email
+      },
+      function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        cb(result);
+      });
   }
-}
+};
 
 
 

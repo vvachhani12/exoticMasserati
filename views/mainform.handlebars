@@ -1,15 +1,13 @@
 <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo bar">carSwap</a>
-        <ul id="navBar" class="right hide-on-med-and-down">
-            <li><a href="index.html">Link to home</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-        </ul>
-    </div>
-</nav>
-
-
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo bar">carSwap</a>
+            <ul id="navBar" class="right hide-on-med-and-down">
+                <li><a href="index.html">Link to home</a></li>
+                <li><a href="">Link</a></li>
+                <li><a href="">Link</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
 <div class="container">
@@ -17,12 +15,12 @@
         <div class="col s12">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img src="./assets/img/rentyourcar.png" alt="">
+                    <img src="/assets/img/rentyourcar.png" alt="">
                 </div>
-                <form action="#" class="card-stacked">
+                {{!-- Jemall removed [action="#" and added onSubmit="handleFormSubmit(this); return false;" for onClick event --}}
+                <form class="card-stacked" onSubmit="handleFormSubmit(this); return false;">
                     <div class="card-content">
                         <div class="row">
-
                             <div class="input-field col s4">
                                 <select id="car_make">
                                     <option value="" disabled selected>Make</option>
@@ -58,6 +56,7 @@
                                     <option value="New">New</option>
                                     <option value="Excellent">Excellent</option>
                                     <option value="Good">Good</option>
+                                    <option value="Fair">Good</option>
                                 </select>
                                 <label>Car Condition</label>
                             </div>
@@ -78,9 +77,7 @@
                                 <label for="car_rate">Car Rate</label>
                             </div>
                         </div>
-
                         <div class="row">
-
                             <div class="input-field col s4">
                                 <input id="start_date" type="text" class="datepicker">
                                 <label for="start_date">Start Date</label>
@@ -110,53 +107,73 @@
     </div>
 </div>
 
-<footer class="page-footer black">
-    <div class="container">
-        <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
+ <footer class="page-footer black">
         <div class="container">
-            © 2019 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+        
 </footer>
-
+     {{!-- <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script> --}}
 <script>
-    $(document).ready(function () {
-        $('select').formSelect();
-        $('.datepicker').datepicker();
-
-        var makeSelect = $('#car_make');
-        makeSelect.change(() => {
-            $.getJSON('/api/getAllModel/' + makeSelect.val(), function (data) {
-                $('#car_model').empty();
-                $('#car_model').html('<option value="" disabled selected>Model</option>')
-                $.each(data, (index, element) => {
-                    let option = $('<option></option>')
-                        .attr('value', element.car_Model)
-                        .text(element.car_Model);
-                    $('#car_model').append(option);
-                });
-                $('#car_model').formSelect();
-            });
-        });
+    document.addEventListener('DOMContentLoaded', function () {
+        var select_elems = document.querySelectorAll('select');
+        var select_instances = M.FormSelect.init(select_elems);
+        var picker_elems = document.querySelectorAll('.datepicker');
+        var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
     });
-
+    // Date picker date format needs to be 2018-01-01
+       // code for sending form data to  post route
+       function handleFormSubmit(form) {
+        console.log("submit button clicked")
+            var newCarToAdd = {
+                    carMake: $("#car_make").val().trim(),
+                    carModel: $("#car_model").val().trim(),
+                    carYear: $("#car_year").val().trim(),
+                    transmission: $("#transmission_type").val().trim(),
+                    startDate: $("#start_date").val(),
+                    endDate: $("#end_date").val(),
+                    miles: $("#car_miles").val().trim(),
+                    carImg: $("#car_img").val().trim(),
+                    carRate: $("#car_rate").val().trim(),
+                    availability: 1,
+                    condition: $('#car_condition').val().trim()
+                    }
+          // Send the POST request.
+        console.log(newCarToAdd);
+          $.ajax("/api/cars", {
+            type: "POST",
+            data: newCarToAdd
+          }).then(
+            function() {
+              console.log("inside mainform.hanldbars script ajax POST request and sending post then reload");
+              // Reload the page to get the updated list
+              location.reload();
+            }
+          );
+        }
+        //end of code added for testing post route
+   
 </script>
