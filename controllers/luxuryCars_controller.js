@@ -11,6 +11,7 @@ router.get("/", function(req, res) {
     console.log("inside the router.get function of luxuryCars_controller.js")
     res.render("index");
 });
+
 router.get("/mainform", function(req, res) {
   res.render("mainform");
 
