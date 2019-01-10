@@ -16,6 +16,8 @@ router.get("/mainform", function(req, res) {
   res.render("mainform");
 
 });
+
+
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
   console.log("inside the router.get function of luxuryCars_controller.js")
