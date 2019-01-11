@@ -1,57 +1,28 @@
 var express = require("express");
 var path = require("path");
-
 var router = express.Router();
-
 // Import the model (luxuryCar.js) to use its database functions.
 var luxuryCar = require("../models/luxuryCar.js");
-
-
 // You can use the below for debug purposes if needed
 // var luxuryCar = require("../config/orm.js")
-
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function of luxuryCars_controller.js")
-  // luxuryCar.selectAll(function(data) {
-  //   var hbsObject = {
-  //     cars: data
-  //   };
-    // console.log(hbsObject);
     res.render("index");
-    // res.sendFile(path.join(__dirname, "../views/index"));
-  // });
 });
 
 router.get("/mainform", function(req, res) {
-  console.log("inside the router.get function of luxuryCars_controller.js")
-  luxuryCar.getAllMake(function(data){
-    console.log("Data from controller: "+ data);
-    var makeObject = {
-      makes: data
-    };
-    console.log("Object: " + makeObject);
-    res.render("mainform", makeObject);
-  });
+  res.render("mainform");
 
-  
- 
 });
+
 
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
   console.log("inside the router.get function of luxuryCars_controller.js")
-  // luxuryCar.selectAll(function(data) {
-  //   var hbsObject = {
-  //     cars: data
-  //   };
-    // console.log(hbsObject);
     res.render("questionnaire");
-    // res.sendFile(path.join(__dirname, "../views/questionnaire.html"));
-  // });
 });
-
 router.get("/rentCar", function(req, res) {
   //adding console.log to make debug easier for the team
   console.log("inside the router.get function of luxuryCars_controller.js")
@@ -62,10 +33,8 @@ router.get("/rentCar", function(req, res) {
     };
     console.log("Object: "+carObject);
     res.render("rentCar", carObject);
-    // res.sendFile(path.join(__dirname, "../views/rentCar.html"));
   });
 });
-
 router.get("/api/my_choice/:id", function(req, res) {
     //adding console.log to make debug easier for the team
     console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
@@ -75,23 +44,26 @@ router.get("/api/my_choice/:id", function(req, res) {
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
-    // res.render(path)
-
-  });
+  }); 
 });
-
 router.post("/api/cars", function(req, res) {
-    console.log("Hit the /api/cars route inside luxuryCars_controller.js with res ",res.body)
-  luxuryCar.create([
-    "car_Year", "car_Make","car_Model","transmission_Type","start_DA","end_DA","car_Miles","car_Availability","car_Rates","car_Condition","car_ImageURL"
-  ], [
-    req.body.car_Year, req.body.car_Make,req.body.car_Model, req.body.transmission_Type, req.body.start_DA, req.body.end_DA, req.body.car_Miles, req.body.car_Availability, req.body.car_Rates, req.body.car_Condition,req.body.car_ImageURL
-  ], function(result) {
+    console.log("Hit the /api/cars route inside luxuryCars_controller.js with req set as",req.body)
+  luxuryCar.create(
+    req.body.carYear, req.body.carMake,req.body.carModel, req.body.transmission, req.body.startDate, req.body.endDate, req.body.miles, req.body.carImg, req.body.carRate, req.body.availability, req.body.condition, function(result) {
     // Send back the ID of the new car
     res.json({ id: result.insertId });
   });
 });
-
+router.get("/api", function(req, res) {
+  luxuryCar.selectAll(function(data) {
+  var hbsObject = {
+    cars: data
+  };
+  console.log(hbsObject);
+console.log("AUTOCOMPLETE")
+res.json(hbsObject);
+});
+});
 router.put("/api/cars/:id", function(req, res) {
     //   console.log("Hit the /api/cars/:id route inside luxuryCars_controller.js with id = ",req.params.id);
   var condition = "id = " + req.params.id;
@@ -106,6 +78,9 @@ router.put("/api/cars/:id", function(req, res) {
     }
   });
 });
+// Export routes for server.js to use.
+module.exports = router;
+
 
 router.get("/api/getAllModel/:make", function(req, res){
   
@@ -116,5 +91,3 @@ router.get("/api/getAllModel/:make", function(req, res){
 });
 
 
-// Export routes for server.js to use.
-module.exports = router;
