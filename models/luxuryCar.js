@@ -13,7 +13,6 @@ var cars = {
         });
       },
 
-
       create: function(carYear, carMake,carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, cb) {
         orm.createCar(carYear, carMake,carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, function(res) {
           cb(res);
