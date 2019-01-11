@@ -397,37 +397,86 @@ console.log(sumofall)
 
 
 if(sumofall === 18 || sumofall === 19 || sumofall === 20) {
-alert("you get a masserati") 
+alert("you get a Maserati") 
+
+let newvar = "Maserati"
+
+getresults(newvar)
 }
 
 if (sumofall === 18) {
-alert("you get a Tesla") 
+alert("you get a Tesla")
+let newvar = "Tesla"
+
+getresults(newvar) 
 }
 if (sumofall === 17) {
 alert("you get a Nissan") 
+let newvar = "Nissan"
+getresults(newvar)
 }
 
 if (sumofall === 16) {
-alert("you get an Audi R8") 
+alert("you get an Audi") 
+
+let newvar = "Audi"
+
+getresults(newvar)
 }
 
 if (sumofall === 15) {
-alert("You get a BMW 3Series")
+alert("You get a BMW")
+
+let newvar = "BMW"
+
+getresults(newvar)
 }
 
 if (sumofall === 14 || sumofall === 13 || sumofall === 12) {
 alert("you get a Range Rover")
+
+let newvar = "Land Rover"
+
+getresults(newvar)
 }
 
 if (sumofall === 10 || sumofall === 11) {
-alert("you get a Bently ")
+alert("you get a Bentley")
+
+let newvar = "Bentley"
+
+getresults(newvar)
 }
 
 if (sumofall === 7|| sumofall === 8|| sumofall === 9) {
 alert("you get an Audi RS4")
+
+let newvar = "Audi"
+
+getresults(newvar)
 }
 
+
+function getresults(newvar) {
+
+$.ajax({
+	url: "/api/characters/" + newvar,
+	method: "GET"  
+}).then(function(response){
+	console.log(response)
+});
+
+}
+
+
+
+
+
 }); 
+
+
+
+
 
 }); 
 

@@ -46,6 +46,53 @@ router.get("/api/my_choice/:id", function(req, res) {
     res.render("index", hbsObject);
   }); 
 });
+
+router.get("/api/my_choice/:id", function(req, res) {
+  //adding console.log to make debug easier for the team
+  console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
+  console.log("everything sucks")
+  luxuryCar.selectSome(function(data) {
+  var hbsObject = {
+    cars: data
+  };
+  console.log(hbsObject);
+  res.render("index", hbsObject);
+}); 
+});
+
+
+
+
+
+router.get("/api/characters/:character", function(req, res) {
+  
+  var chosen = req.params.character;
+
+  console.log(chosen)
+  // //adding console.log to make debug easier for the team
+  console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
+  luxuryCar.selectSome(chosen, function(data) {
+  console.log(data)
+  
+  // console.log(hbsObject);
+
+console.log(chosen)
+  res.json(data);
+  // res.json(chosen)
+}); 
+
+}); 
+
+
+
+
+
+
+
+
+
+
+
 router.post("/api/cars", function(req, res) {
     console.log("Hit the /api/cars route inside luxuryCars_controller.js with req set as",req.body)
   luxuryCar.create(
