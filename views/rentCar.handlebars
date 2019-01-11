@@ -1,0 +1,255 @@
+<body>
+    <!--Nav Bar-->
+    <nav>
+        <div class="nav-wrapper center-align z-depth-5">
+            <img src="./assets/img/Luxury1.jpg" height="80" width="250">
+            <ul id="navBar" class="right hide-on-med-and-down">
+                <li><a href="/">Link To Home</a></li>
+                <li><a href="./questionnaire">Car Questionnaire</a></li>
+                <li><a href="./mainform">List Your Car</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Parallax # 1-->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="./assets/img/parallax2.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
+
+	<div class="container">
+
+     {{!-- Autocomplete --}}
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <form autocomplete="off" action="">
+                            <div class="autocomplete" style ="width:300px";>
+                                <i class="material-icons prefix">search</i>
+                                <input id="myInput" type="text" name="myCar" placeholder="Search" class="autocomplete"> 
+                            </div>                             
+                            <button class="btn waves-effect waves-light blue-grey darken-3" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                            </button>  
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    {{#each cars}}
+
+    {{!-- <div class="card-panel hoverable card center-align card-panel teal lighten-2"> --}}
+        {{!-- <div class="row"> --}}
+            <!--Card One Leads to Questionnaire-->
+            {{!-- <div class="col s6 m7" id="card1"> --}}
+                <div class="card-panel hoverable center-align teal lighten-2" id="carDisplay">
+                    <ul>
+                            {{#unless car_Availability}}
+                                <li>
+                                    <h6>
+                                        {{this.id}}. {{this.car_Year}} {{this.car_Make}} {{this.car_Model}}<br/>
+                                        Engine Type: {{this.transmission_Type}}<br/>
+                                        {{this.car_Miles}} miles <br/>
+                                        Car Condition: {{this.car_Condition}} <br/>
+                                        <div>
+                                            <img alt="Car Pic" src="/uploads/{{this.car_ImageURL}}" class="img-circle img-responsive">
+                                        </div>
+
+                                    </h6>
+                                </li>
+                            {{/unless}}
+                    </ul>
+                </div>   
+            {{!-- </div> --}}
+        {{!-- </div> --}}
+    {{!-- </div> --}}
+    {{/each}}
+    </div>
+
+    <!--Parallax # 1-->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="./assets/img/parallax2.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
+    
+
+
+    <!--Footer--->
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+        
+    </footer>
+ 
+
+
+
+        <!-- jQuery CDN-->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <!-- Compiled and minified JavaScript-->
+  
+
+        <script>
+            //Parallax Car Image Function
+            $(document).ready(function(){
+                $('.parallax').parallax();                
+            });
+
+            document.addEventListener('DOMContentLoaded', function(){
+                //api calls json car object from backend
+                $.getJSON("/api", function(response) {
+                    //console.log(response);
+                    const carArray = [];
+
+                    for (var i = 0; i < response.cars.length; i++){
+                    const carProduct =  response.cars[i];
+                    const carMake = carProduct.car_Make
+                    
+                    carArray.push(carMake);
+                    
+                    console.log(carMake)
+                    };
+
+                    //console.log(carArray)
+
+                    //Autocomplete Function
+                    function autocomplete(inp, arr) {
+                        /*the autocomplete function takes two arguments,
+                        the text field element and an array of possible autocompleted values:*/
+                        var currentFocus;
+                        /*execute a function when someone writes in the text field:*/
+                        inp.addEventListener("input", function(e) {
+                            var a, b, i, val = this.value;
+                            /*close any already open lists of autocompleted values*/
+                            closeAllLists();
+                            if (!val) { return false;}
+                            currentFocus = -1;
+                            /*create a DIV element that will contain the items (values):*/
+                            a = document.createElement("DIV");
+                            a.setAttribute("id", this.id + "autocomplete-list");
+                            a.setAttribute("class", "autocomplete-items");
+                            /*append the DIV element as a child of the autocomplete container:*/
+                            this.parentNode.appendChild(a);
+                            /*for each item in the array...*/
+                            for (i = 0; i < arr.length; i++) {
+                                /*check if the item starts with the same letters as the text field value:*/
+                                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                                /*create a DIV element for each matching element:*/
+                                b = document.createElement("DIV");
+                                /*make the matching letters bold:*/
+                                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                                b.innerHTML += arr[i].substr(val.length);
+                                /*insert a input field that will hold the current array item's value:*/
+                                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                                /*execute a function when someone clicks on the item value (DIV element):*/
+                                    b.addEventListener("click", function(e) {
+                                    /*insert the value for the autocomplete text field:*/
+                                    inp.value = this.getElementsByTagName("input")[0].value;
+                                    /*close the list of autocompleted values,
+                                    (or any other open lists of autocompleted values:*/
+                                    closeAllLists();
+                                });
+                                a.appendChild(b);
+                                }
+                            }
+                        });
+                        /*execute a function presses a key on the keyboard:*/
+                        inp.addEventListener("keydown", function(e) {
+                            var x = document.getElementById(this.id + "autocomplete-list");
+                            if (x) x = x.getElementsByTagName("div");
+                            if (e.keyCode == 40) {
+                                /*If the arrow DOWN key is pressed,
+                                increase the currentFocus variable:*/
+                                currentFocus++;
+                                /*and and make the current item more visible:*/
+                                addActive(x);
+                            } else if (e.keyCode == 38) { //up
+                                /*If the arrow UP key is pressed,
+                                decrease the currentFocus variable:*/
+                                currentFocus--;
+                                /*and and make the current item more visible:*/
+                                addActive(x);
+                            } else if (e.keyCode == 13) {
+                                /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                                e.preventDefault();
+                                if (currentFocus > -1) {
+                                /*and simulate a click on the "active" item:*/
+                                if (x) x[currentFocus].click();
+                                }
+                            }
+                        });
+                        function addActive(x) {
+                            /*a function to classify an item as "active":*/
+                            if (!x) return false;
+                            /*start by removing the "active" class on all items:*/
+                            removeActive(x);
+                            if (currentFocus >= x.length) currentFocus = 0;
+                            if (currentFocus < 0) currentFocus = (x.length - 1);
+                            /*add class "autocomplete-active":*/
+                            x[currentFocus].classList.add("autocomplete-active");
+                        }
+                        function removeActive(x) {
+                            /*a function to remove the "active" class from all autocomplete items:*/
+                            for (var i = 0; i < x.length; i++) {
+                            x[i].classList.remove("autocomplete-active");
+                            }
+                        }
+                        function closeAllLists(elmnt) {
+                            /*close all autocomplete lists in the document,
+                            except the one passed as an argument:*/
+                            var x = document.getElementsByClassName("autocomplete-items");
+                            for (var i = 0; i < x.length; i++) {
+                            if (elmnt != x[i] && elmnt != inp) {
+                            x[i].parentNode.removeChild(x[i]);
+                            }
+                        }
+                        }
+                        /*execute a function when someone clicks in the document:*/
+                        document.addEventListener("click", function (e) {
+                            closeAllLists(e.target);
+                        });
+                        }
+
+                        autocomplete(document.getElementById("myInput"), carArray);
+
+                        {{!-- $(".submit").on("click", function(event) {
+                        console.log(event)
+                        event.preventDefault();
+                        let car = $(".myInput")[0].value; 
+                        console.log(car)
+                        });  --}}
+
+                });
+            });     
+        </script>
+    </body>
+</html>

@@ -1,0 +1,436 @@
+<body>
+    <!--Nav Bar-->
+    <nav>
+      
+        <div class="nav-wrapper center-align z-depth-5">
+            <img src="./assets/img/Luxury1.jpg" height="80" width="250">
+
+            <ul id="navBar" class="right hide-on-med-and-down">
+                <li><a href="/">Link To Home</a></li>
+                <li><a href="./rentCar">Rent A Car</a></li>
+                <li><a href="./mainform">List Your Car</a></li>
+            </ul>
+        </div>
+    </nav>    
+
+    <!--Contact Info Field-->
+	<div class="container hoverable" id="clientInfo">
+        <h1>Luxury Car Rental</h1>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row" id="firstName">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="icon_prefix" type="text" class="validate">
+                            <label for="icon_prefix">First Name</label>
+                        </div>
+
+                        <div class="input-field col s6" id="lastName">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="icon_prefix" type="text" class="validate">
+                            <label for="icon_prefix">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row" id="phone">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="icon_telephone" type="tel" class="validate">
+                            <label for="icon_telephone">Phone</label>
+                        </div>  
+
+                        <div class="input-field col s6" id="email">
+                            <i class="material-icons prefix">email</i>
+                            <input id="icon_email" type="email" class="validate">
+                            <label for="icon_email">Email</label>
+                        </div>  
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!--Parallax # 1-->
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="./assets/img/parallax2.jpg" alt="" class="responsive-img">
+        </div>
+    </div>
+        
+    <!--Questionnaire-->
+    <div class="container hoverable box blue-grey lighten-5 z-depth-5">   
+        <div class="row" id="questionnaire">   
+            <!--Question #1-->
+            <form class="col s12" action="#">
+                <h5>A car is meant to get you from point A to point B. But it doesn’t hurt to have a little extra…</h5>
+                <div class="row" id="q1">
+                    <p>
+                        <label>
+                            <input class="with-gap" value="4" name="group1" id="a1" type="radio"  />
+                            <span>Speed</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="3" name="group1" id = "a2" type="radio"  />
+                            <span >Flair</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="2" name="group1" id = "a3"  type="radio"  />
+                            <span>Comfort</span>
+                        </label>
+                    </p>                       
+
+                    <p>
+                        <label>
+                            <input class="with-gap" value="1" name="group1" id = "a4" type="radio"  />
+                            <span>Detail</span>
+                        </label>
+                    </p>
+                </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
+            </form>
+
+            <!--Question #2-->
+            <form class="col s12" action="#"  id="q2">
+                <h5>Where do you prefer to enjoy a ride?</h5>
+                <div class="row">
+                    <p>
+                        <label>
+                            <input class="with-gap" value="4" name="group2" id = "b1" type="radio"  />
+                            <span>Countryside! I need open spaces to speed</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="2" name="group2" id = "b2" type="radio"  />
+                            <span>City! I love people checking out my sweet ride!</span>
+                        </label>
+                    </p>
+                </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
+            </form>
+            
+            <!--Question #3-->
+            <form class="col s12" action="#"  id="q3">
+                <h5>What would you want your car to say about you?</h5>
+                <div class="row">
+                    <p>
+                        <label>
+                            <input class="with-gap" value="4" id = "c1" name="group2" type="radio"  />
+                            <span>I'm a secret agent</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="2" id = "c2" name="group2" type="radio"  />
+                            <span>I'm classy and sophisticated</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="3" id = "c3" name="group2" type="radio"  />
+                            <span>I'm not all ego</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="1" id = "c4" name="group2" type="radio"  />
+                            <span>I'm a very busy person</span>
+                        </label>
+                    </p>
+                </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
+            </form>
+
+            <!--Question #4-->
+            <form class="col s12" action="#"  id="q4">
+                <h5>Which color do you look best in as you fly down the road?</h5>
+                <div class="row">
+                    <p>
+                        <label>
+                            <input class="with-gap" value="4" id = "d1" name="group2" type="radio"  />
+                            <span>Flashy colors</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" value="2" name="group2" id = "d2" type="radio"  />
+                            <span>Classic colors</span>
+                        </label>
+                    </p>
+                
+                </div>
+                <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+
+            <button class="btn waves-effect waves-light black btn-next" type="next" name="action">Next
+                <i class="material-icons right">navigate_next</i>
+            </button>
+            </form>
+
+            <!--Question #5-->
+            <form class="col s12" action="#"  id="q5">
+                    <h5>What defines a luxury car to you?</h5>
+                    <div class="row">
+                        <p>
+                            <label>
+                                <input class="with-gap" value="4" name="group2" id = "e1" type="radio"  />
+                                <span>Any car with a massage seat is classified as luxury.</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" value="3" name="group2" id = "e2" type="radio"  />
+                                <span>Something sporty, fast, & sexy.</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" value="2" name="group2" id = "e3" type="radio"  />
+                                <span>A stunning look with all the features.</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" value="1" name="group2" id = "e4" type="radio"  />
+                                <span>A head turner</span>
+                            </label>
+                        </p>
+                    </div>
+                    <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
+                <i class="material-icons left">navigate_before</i>
+            </button>
+            <button class="btn waves-effect waves-light black btn-back submit" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+                </button>
+        
+                </form>
+
+            <!--Question #6-->
+            
+
+            <!--Back & Next Buttons-->
+            
+        </div>
+    </div> 
+
+    <!--Footer-->
+    <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+        
+    </footer>
+ 
+
+
+
+        <!-- jQuery CDN-->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <!-- Compiled and minified JavaScript-->
+       
+
+        <script>
+            //Parallax Car Image Function
+            $(document).ready(function(){
+                $('.parallax').parallax();
+            });
+
+            //Back & Next Questionnaire Button Function
+            $(document).ready(function(){
+                $("#questionnaire form").each(function(e) {
+                    if (e != 0)
+                        $(this).hide();
+                });
+
+                $(".btn-next").click(function(){
+                    if ($("#questionnaire form:visible").next().length != 0)
+                        $("#questionnaire form:visible").next().show().prev().hide();
+                    else {
+                        $("#questionnaire form:visible").hide();
+                        $("#questionnaire form:first").show();
+                    }
+                    return false;
+                });
+
+                $(".btn-back").click(function(){
+                    if ($("#questionnaire form:visible").prev().length != 0)
+                        $("#questionnaire form:visible").prev().show().next().hide();
+                    else {
+                        $("#questionnaire form:visible").hide();
+                        $("#questionnaire form:last").show();
+                    }
+                    return false;
+                });
+
+            $("#btn-next2").click(function(){
+                    if ($("#questionnaire form:visible").next().length != 0)
+                        $("#questionnaire form:visible").next().show().prev().hide();
+                    else {
+                        $("#questionnaire form:visible").hide();
+                        $("#questionnaire form:first").show();
+                    }
+                    return false;
+                });
+
+                $("#btn-back2").click(function(){
+                    if ($("#questionnaire form:visible").prev().length != 0)
+                        $("#questionnaire form:visible").prev().show().next().hide();
+                    else {
+                        $("#questionnaire form:visible").hide();
+                        $("#questionnaire form:last").show();
+                    }
+                    return false;
+                });
+                 
+                 
+$(".submit").on("click", function(event) {
+ event.preventDefault();
+
+if (document.getElementById('a1').checked) {
+ var rate_value = parseInt(document.getElementById('a1').value)
+}
+
+if (document.getElementById('a2').checked) {
+var rate_value = parseInt(document.getElementById('a2').value)
+}
+
+if (document.getElementById('a3').checked) {
+ var rate_value = parseInt(document.getElementById('a3').value) 
+}
+
+if (document.getElementById('a4').checked) {
+var rate_value = parseInt(document.getElementById('a4').value)
+}
+
+if (document.getElementById('b1').checked) {
+var second_value = parseInt(document.getElementById('b1').value)
+}
+
+if (document.getElementById('b2').checked) {
+var second_value = parseInt(document.getElementById('b2').value)
+}
+
+if (document.getElementById('c1').checked) {
+var third_value = parseInt(document.getElementById('c1').value)
+}
+if (document.getElementById('c2').checked) {
+var third_value = parseInt(document.getElementById('c2').value)
+}
+if (document.getElementById('c3').checked) {
+var third_value = parseInt (document.getElementById('c3').value)
+}
+if (document.getElementById('c4').checked) {
+var third_value = parseInt (document.getElementById('c4').value)
+}
+
+if (document.getElementById('d1').checked) {
+var fourth_value = parseInt(document.getElementById('d1').value)
+}
+if (document.getElementById('d2').checked) {
+var fourth_value = parseInt(document.getElementById('d2').value)
+}
+
+if (document.getElementById('e1').checked) {
+var fifth_value = parseInt(document.getElementById('e1').value)
+}
+if (document.getElementById('e2').checked) {
+var fifth_value = parseInt(document.getElementById('e2').value)
+}
+if (document.getElementById('e3').checked) {
+var  fifth_value = parseInt(document.getElementById('e3').value) 
+}
+if (document.getElementById('e4').checked) {
+var fifth_value = parseInt(document.getElementById('e4').value)
+}
+
+var sumofall = rate_value + second_value + third_value + fourth_value + fifth_value 
+
+console.log(sumofall)
+
+
+
+
+
+if(sumofall === 18 || sumofall === 19 || sumofall === 20) {
+alert("you get a masserati") 
+}
+
+if (sumofall === 18) {
+alert("you get a Tesla") 
+}
+if (sumofall === 17) {
+alert("you get a Nissan") 
+}
+
+if (sumofall === 16) {
+alert("you get an Audi R8") 
+}
+
+if (sumofall === 15) {
+alert("You get a BMW 3Series")
+}
+
+if (sumofall === 14 || sumofall === 13 || sumofall === 12) {
+alert("you get a Range Rover")
+}
+
+if (sumofall === 10 || sumofall === 11) {
+alert("you get a Bently ")
+}
+
+if (sumofall === 7|| sumofall === 8|| sumofall === 9) {
+alert("you get an Audi RS4")
+}
+
+}); 
+
+}); 
+
+
+
+ </script>

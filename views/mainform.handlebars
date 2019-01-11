@@ -1,0 +1,208 @@
+<nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo bar">carSwap</a>
+            <ul id="navBar" class="right hide-on-med-and-down">
+                <li><a href="/">Link to home</a></li>
+                <li><a href="./rentCar">Rent A Car</a></li>
+                <li><a href="./questionnaire">Car Questionnaire</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="/assets/img/rentyourcar.png" alt="">
+                </div>
+                {{!-- Jemall removed [action="#" and added onSubmit="handleFormSubmit(this); return false;" for onClick event --}}
+                <form class="card-stacked"  enctype="multipart/form-data" action="/api/cars" method="POST">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="car_make" type="text" class="validate" name="car_make">
+                                <label for="car_make">Car Make</label>
+                            </div>
+
+                            <div class="input-field col s4">
+                                <input id="car_model" type="text" class="validate" name="car_model">
+                                <label for="car_model">Car Model</label>
+                            </div>
+
+                            <div class="input-field col s4">
+                                <input id="car_year" type="text" class="validate" name="car_year">
+                                <label for="car_year">Car Year</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="transmission_type" type="text" class="validate" name="transmission_type">
+                                <label for="transmission_type">Transmission Type</label>
+                            </div>
+                            
+                            <div class="input-field col s4">
+                                <select id="car_condition" name="car_condition">
+                                    <option value="" disabled selected>Condition</option>
+                                    <option value="New">New</option>
+                                    <option value="Excellent">Excellent</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Fair">Fair</option>
+                                </select>
+                                <label>Car Condition</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="car_miles" type="text" class="validate" name="car_miles">
+                                <label for="car_miles">Car Miles</label>
+                            </div>
+                        </div>
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file" name="carImg" id="imageFile">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" id="car_img" type="text" placeholder="Upload an Image">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="car_rate" type="text" class="validate" name="car_rate">
+                                <label for="car_rate">Car Rate</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="input-field col s4">
+                                <input id="start_date" type="text" class="datepicker" name="start_date">
+                                <label for="start_date">Start Date</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="end_date" type="text" class="datepicker" name="end_date">
+                                <label for="end_date">End Date</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="availability" type="text" class="validate" name="availability">
+                                <label for="availability">Availability</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                <button class="btn waves-effect waves-light right" type="submit" name="action" data-target="modal1">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+            </form>
+            </div>
+            <!-- Modal Trigger -->
+            {{!-- <button data-target="modal1" class="btn modal-trigger">Modal</button> --}}
+            {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> --}}
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                <h4>You Car Has Been Registerd</h4>
+                <p>
+                    <li>
+                        Car Year: <span></span>
+                        Car Make: <span></span>
+                        Car Model: <span></span>
+                        Engine Type: <span></span>
+                        Price: <span></span>
+                        Start Date: <span></span> End Date: <span></span>
+                        Image: <span></span>
+                    </li>
+                </p>
+                </div>
+                <div class="modal-footer">
+                <a href="./mainform" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+
+ <footer class="page-footer black">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+        
+</footer>
+     <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var select_elems = document.querySelectorAll('select');
+        var select_instances = M.FormSelect.init(select_elems);
+        var picker_elems = document.querySelectorAll('.datepicker');
+        var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
+    });
+    // Date picker date format needs to be 2018-01-01
+
+       // code for sending form data to  post route
+       function handleFormSubmit(form) {
+           //debugger;
+        console.log("submit button clicked")
+            var newCarToAdd = {
+                    carMake: $("#car_make").val().trim(),
+                    carModel: $("#car_model").val().trim(),
+                    carYear: $("#car_year").val().trim(),
+                    transmission: $("#transmission_type").val().trim(),
+                    startDate: $("#start_date").val(),
+                    endDate: $("#end_date").val(),
+                    miles: $("#car_miles").val().trim(),
+                    carImg: $("#imageFile").val(),
+                    carImg: $("#car_img").val().trim(),
+                    carRate: $("#car_rate").val().trim(),
+                    availability: 1,
+                    condition: $('#car_condition').val().trim()
+                    }
+          // Send the POST request.
+        
+        $('.modal').modal();
+        //var data = new FormData(jQuery('form')[0]);
+        //  console.log(data)
+        console.log(newCarToAdd);
+          $.ajax("/api/cars", {
+            type: "POST",
+            //data: newCarToAdd
+            success: function(data){
+            }
+          }).then(
+            function(data) {
+              console.log("inside mainform.hanldbars script ajax POST request and sending post then reload");
+              // Reload the page to get the updated list
+              console.log(data)
+              location.reload();
+            }
+          );
+        }
+
+        //end of code added for testing post route
+   
+</script>
