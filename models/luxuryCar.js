@@ -14,20 +14,6 @@ var cars = {
       },
 
       create: function(carYear, carMake,carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, cb) {
-        var Test = {
-          car_Year: carYear,
-          car_Make: carMake,
-          car_Model: carModel,
-          car_trans: transmission,
-          Start_Date: startDate,
-          end_Date: endDate,
-          car_Miles: miles,
-          car_Img: carImg,
-          car_Rate: carRate,
-          car_Availability: availability,
-          car_Condition: condition
-        }
-        console.log (Test);
         orm.createCar(carYear, carMake,carModel, transmission, startDate, endDate, miles, carImg, carRate, availability, condition, function(res) {
           cb(res);
         });

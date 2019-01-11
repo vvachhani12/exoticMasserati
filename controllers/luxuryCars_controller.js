@@ -83,8 +83,9 @@ router.post("/api/cars", upload.single('carImg'), function(req, res) {
    luxuryCar.create(
      req.body.car_year, req.body.car_make,req.body.car_model, req.body.transmission_type, req.body.start_date, req.body.end_date, req.body.car_miles, req.file.filename, req.body.car_rate, req.body.availability, req.body.car_condition, function(result) {
      // Send back the ID of the new car
-    res.json({ id: result.insertId });
+    // res.json({ id: result.insertId });
     // res.json({ id: "Works" });
+    // res.render("mainform");
    });
 });
 router.get("/api", function(req, res) {

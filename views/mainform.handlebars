@@ -3,7 +3,7 @@
             <a href="#" class="brand-logo bar">carSwap</a>
             <ul id="navBar" class="right hide-on-med-and-down">
                 <li><a href="/">Link to home</a></li>
-                <li><a href="./rentar">Rent A Car</a></li>
+                <li><a href="./rentCar">Rent A Car</a></li>
                 <li><a href="./questionnaire">Car Questionnaire</a></li>
             </ul>
         </div>
@@ -48,7 +48,7 @@
                                     <option value="New">New</option>
                                     <option value="Excellent">Excellent</option>
                                     <option value="Good">Good</option>
-                                    <option value="Fair">Good</option>
+                                    <option value="Fair">Fair</option>
                                 </select>
                                 <label>Car Condition</label>
                             </div>
@@ -90,15 +90,39 @@
                         </div>
                     </div>
                     <div class="card-action">
-                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light right" type="submit" name="action" data-target="modal1">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
             </form>
             </div>
-        </div>
-    </div>
-</div>
+            <!-- Modal Trigger -->
+            {{!-- <button data-target="modal1" class="btn modal-trigger">Modal</button> --}}
+            {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> --}}
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                <h4>You Car Has Been Registerd</h4>
+                <p>
+                    <li>
+                        Car Year: <span></span>
+                        Car Make: <span></span>
+                        Car Model: <span></span>
+                        Engine Type: <span></span>
+                        Price: <span></span>
+                        Start Date: <span></span> End Date: <span></span>
+                        Image: <span></span>
+                    </li>
+                </p>
+                </div>
+                <div class="modal-footer">
+                <a href="./mainform" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
 
  <footer class="page-footer black">
         <div class="container">
@@ -160,16 +184,20 @@
                     }
           // Send the POST request.
         
+        $('.modal').modal();
         //var data = new FormData(jQuery('form')[0]);
         //  console.log(data)
         console.log(newCarToAdd);
           $.ajax("/api/cars", {
             type: "POST",
             //data: newCarToAdd
+            success: function(data){
+            }
           }).then(
-            function() {
+            function(data) {
               console.log("inside mainform.hanldbars script ajax POST request and sending post then reload");
               // Reload the page to get the updated list
+              console.log(data)
               location.reload();
             }
           );
