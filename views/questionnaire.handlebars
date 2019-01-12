@@ -3,7 +3,7 @@
     <nav>
       
         <div class="nav-wrapper center-align z-depth-5">
-            <img src="./assets/img/Luxury1.jpg" height="80" width="250">
+            {{!-- <img src="./assets/img/Luxury1.jpg" height="80" width="250"> --}}
 
             <ul id="navBar" class="right hide-on-med-and-down">
                 <li><a href="/">Link To Home</a></li>
@@ -221,11 +221,23 @@
                     <button class="btn waves-effect waves-light black btn-back" type="back" name="action">Back
                 <i class="material-icons left">navigate_before</i>
             </button>
-            <button class="btn waves-effect waves-light black btn-back submit" type="submit" name="action">Submit
+            <button class="btn waves-effect waves-light black btn-back submit" type="submit" id="myBtn" name="action">Submit
                 <i class="material-icons right">send</i>
                 </button>
         
                 </form>
+
+                <div id="myModal" class="modal">
+
+   <!-- Modal content -->
+                                                            <div class="modal-content">
+                                                              <span class="close">&times;</span>
+                                                              <p id ="resulttext"></p>
+                                                              <p id ="resulttext2"></p>
+                                                              <p></p>
+                                                            </div>
+                                                          
+                                                          </div>
 
             <!--Question #6-->
             
@@ -279,14 +291,12 @@
             $(document).ready(function(){
                 $('.parallax').parallax();
             });
-
             //Back & Next Questionnaire Button Function
             $(document).ready(function(){
                 $("#questionnaire form").each(function(e) {
                     if (e != 0)
                         $(this).hide();
                 });
-
                 $(".btn-next").click(function(){
                     if ($("#questionnaire form:visible").next().length != 0)
                         $("#questionnaire form:visible").next().show().prev().hide();
@@ -296,7 +306,6 @@
                     }
                     return false;
                 });
-
                 $(".btn-back").click(function(){
                     if ($("#questionnaire form:visible").prev().length != 0)
                         $("#questionnaire form:visible").prev().show().next().hide();
@@ -306,7 +315,6 @@
                     }
                     return false;
                 });
-
             $("#btn-next2").click(function(){
                     if ($("#questionnaire form:visible").next().length != 0)
                         $("#questionnaire form:visible").next().show().prev().hide();
@@ -316,7 +324,6 @@
                     }
                     return false;
                 });
-
                 $("#btn-back2").click(function(){
                     if ($("#questionnaire form:visible").prev().length != 0)
                         $("#questionnaire form:visible").prev().show().next().hide();
@@ -330,31 +337,24 @@
                  
 $(".submit").on("click", function(event) {
  event.preventDefault();
-
 if (document.getElementById('a1').checked) {
  var rate_value = parseInt(document.getElementById('a1').value)
 }
-
 if (document.getElementById('a2').checked) {
 var rate_value = parseInt(document.getElementById('a2').value)
 }
-
 if (document.getElementById('a3').checked) {
  var rate_value = parseInt(document.getElementById('a3').value) 
 }
-
 if (document.getElementById('a4').checked) {
 var rate_value = parseInt(document.getElementById('a4').value)
 }
-
 if (document.getElementById('b1').checked) {
 var second_value = parseInt(document.getElementById('b1').value)
 }
-
 if (document.getElementById('b2').checked) {
 var second_value = parseInt(document.getElementById('b2').value)
 }
-
 if (document.getElementById('c1').checked) {
 var third_value = parseInt(document.getElementById('c1').value)
 }
@@ -367,14 +367,12 @@ var third_value = parseInt (document.getElementById('c3').value)
 if (document.getElementById('c4').checked) {
 var third_value = parseInt (document.getElementById('c4').value)
 }
-
 if (document.getElementById('d1').checked) {
 var fourth_value = parseInt(document.getElementById('d1').value)
 }
 if (document.getElementById('d2').checked) {
 var fourth_value = parseInt(document.getElementById('d2').value)
 }
-
 if (document.getElementById('e1').checked) {
 var fifth_value = parseInt(document.getElementById('e1').value)
 }
@@ -387,48 +385,101 @@ var  fifth_value = parseInt(document.getElementById('e3').value)
 if (document.getElementById('e4').checked) {
 var fifth_value = parseInt(document.getElementById('e4').value)
 }
-
 var sumofall = rate_value + second_value + third_value + fourth_value + fifth_value 
-
 console.log(sumofall)
-
-
-
-
-
 if(sumofall === 18 || sumofall === 19 || sumofall === 20) {
-alert("you get a masserati") 
+alert("you get a Maserati") 
+let newvar = "Maserati"
+getresults(newvar)
 }
-
 if (sumofall === 18) {
-alert("you get a Tesla") 
+alert("you get a Tesla")
+let newvar = "Tesla"
+getresults(newvar) 
 }
 if (sumofall === 17) {
 alert("you get a Nissan") 
+let newvar = "Nissan"
+getresults(newvar)
 }
-
 if (sumofall === 16) {
-alert("you get an Audi R8") 
+alert("you get an Audi") 
+let newvar = "Audi"
+getresults(newvar)
 }
-
 if (sumofall === 15) {
-alert("You get a BMW 3Series")
+alert("You get a BMW")
+let newvar = "BMW"
+getresults(newvar)
 }
-
 if (sumofall === 14 || sumofall === 13 || sumofall === 12) {
 alert("you get a Range Rover")
+let newvar = "Land Rover"
+getresults(newvar)
 }
-
 if (sumofall === 10 || sumofall === 11) {
-alert("you get a Bently ")
+alert("you get a Bentley")
+let newvar = "Bentley"
+getresults(newvar)
 }
-
 if (sumofall === 7|| sumofall === 8|| sumofall === 9) {
 alert("you get an Audi RS4")
+let newvar = "Audi"
+getresults(newvar)
+}
+function getresults(newvar) {
+$.ajax({
+	url: "/api/characters/" + newvar,
+	method: "GET"  
+}).then(function(response){
+	console.log(response)
+
+
+var modal = document.getElementById('myModal');
+ M.toast({html: "results are in!"})
+// Get the button that opens the modal
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks the button, open the modal 
+  modal.style.display = "block";
+
+let makeModel1 = [response[0].car_Make + ' ' + response[0].car_Model];
+
+let makeModel2 = [response[1].car_Make + ' ' + response[1].car_Model];
+
+
+console.log(makeModel1)
+console.log(makeModel2);
+  $("#resulttext").html(makeModel1[0])
+    $("#resulttext2").html(makeModel2[0])
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 
-}); 
 
+
+
+
+
+
+
+
+
+
+
+
+
+});
+}
+}); 
 }); 
 
 
