@@ -1,6 +1,37 @@
 var express = require("express");
 var path = require("path");
 var router = express.Router();
+
+
+var multer = require("multer");
+
+var storage = multer.diskStorage({
+  destination: function(req, file, cb){
+    console.log("destination RAN")
+    cb(null, "./public/uploads");
+  },
+  filename: function(req, file, cb){
+    console.log("file exsist?")
+    cb(null, new Date().toISOString()+"-"+file.originalname);
+  }
+})
+
+const fileFilter = (req, file, cb) => {
+  if(file.mimetype === "image/jpeg" || file.mimetype === "image/png"){
+    cb(null, true);
+  }else{
+    cb(new Error("Please upload either 'JPEG' or 'PNG' format image"), false);
+  }
+}
+
+var upload  = multer({
+  storage: storage, 
+  limits:{
+    fileSize: 1024 * 10
+  },
+  fileFilter: fileFilter
+});
+
 // Import the model (luxuryCar.js) to use its database functions.
 var luxuryCar = require("../models/luxuryCar.js");
 // You can use the below for debug purposes if needed
@@ -15,6 +46,7 @@ router.get("/mainform", function(req, res) {
   res.render("mainform");
 
 });
+
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
   console.log("inside the router.get function of luxuryCars_controller.js")
@@ -42,14 +74,19 @@ router.get("/api/my_choice/:id", function(req, res) {
     console.log(hbsObject);
     res.render("index", hbsObject);
   }); 
+
 });
-router.post("/api/cars", function(req, res) {
-    console.log("Hit the /api/cars route inside luxuryCars_controller.js with req set as",req.body)
-  luxuryCar.create(
-    req.body.carYear, req.body.carMake,req.body.carModel, req.body.transmission, req.body.startDate, req.body.endDate, req.body.miles, req.body.carImg, req.body.carRate, req.body.availability, req.body.condition, function(result) {
-    // Send back the ID of the new car
-    res.json({ id: result.insertId });
-  });
+router.post("/api/cars", upload.single('carImg'), function(req, res) {
+  console.log(req.file)
+  // console.log(req);
+  console.log("Hit the /api/cars route inside luxuryCars_controller.js with req set as",req.body)
+   luxuryCar.create(
+     req.body.car_year, req.body.car_make,req.body.car_model, req.body.transmission_type, req.body.start_date, req.body.end_date, req.body.car_miles, req.file.filename, req.body.car_rate, req.body.availability, req.body.car_condition, function(result) {
+     // Send back the ID of the new car
+    // res.json({ id: result.insertId });
+    // res.json({ id: "Works" });
+    // res.render("mainform");
+   });
 });
 router.get("/api", function(req, res) {
   luxuryCar.selectAll(function(data) {

@@ -33,8 +33,12 @@
                                     <h6>
                                         {{this.id}}. {{this.car_Year}} {{this.car_Make}} {{this.car_Model}}<br/>
                                         Engine Type: {{this.transmission_Type}}<br/>
-                                        {{this.car_Miles}} miles </br>
-                                        Car Condition: {{this.car_Condition}}
+                                        {{this.car_Miles}} miles <br/>
+                                        Car Condition: {{this.car_Condition}} <br/>
+                                        <div>
+                                            <img alt="Car Pic" src="/uploads/{{this.car_ImageURL}}" class="img-circle img-responsive">
+                                        </div>
+
                                     </h6>
                                 </li>
                             {{/unless}}
