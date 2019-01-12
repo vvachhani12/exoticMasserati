@@ -88,6 +88,27 @@ router.post("/api/cars", upload.single('carImg'), function(req, res) {
     // res.render("mainform");
    });
 });
+
+router.get("/api/characters/:character", function(req, res) {
+  
+  var chosen = req.params.character;
+
+  console.log(chosen)
+  // //adding console.log to make debug easier for the team
+  console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
+  luxuryCar.selectSome(chosen, function(data) {
+  console.log(data)
+  
+  // console.log(hbsObject);
+
+console.log(chosen)
+  res.json(data);
+  // res.json(chosen)
+}); 
+
+}); 
+
+
 router.get("/api", function(req, res) {
   luxuryCar.selectAll(function(data) {
   var hbsObject = {
