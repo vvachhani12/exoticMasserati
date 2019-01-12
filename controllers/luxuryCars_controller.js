@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var router = express.Router();
 
+
 var multer = require("multer");
 
 var storage = multer.diskStorage({
@@ -41,12 +42,10 @@ router.get("/", function(req, res) {
     console.log("inside the router.get function of luxuryCars_controller.js")
     res.render("index");
 });
-
 router.get("/mainform", function(req, res) {
   res.render("mainform");
 
 });
-
 
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
@@ -75,6 +74,7 @@ router.get("/api/my_choice/:id", function(req, res) {
     console.log(hbsObject);
     res.render("index", hbsObject);
   }); 
+
 });
 router.post("/api/cars", upload.single('carImg'), function(req, res) {
   console.log(req.file)
@@ -86,8 +86,30 @@ router.post("/api/cars", upload.single('carImg'), function(req, res) {
     // res.json({ id: result.insertId });
     // res.json({ id: "Works" });
     // res.render("mainform");
+    res.redirect("/mainform");
    });
 });
+
+router.get("/api/characters/:character", function(req, res) {
+  
+  var chosen = req.params.character;
+
+  console.log(chosen)
+  // //adding console.log to make debug easier for the team
+  console.log("inside the router.get function for specific vehicle for luxuryCars_controller.js")
+  luxuryCar.selectSome(chosen, function(data) {
+  console.log(data)
+  
+  // console.log(hbsObject);
+
+console.log(chosen)
+  res.json(data);
+  // res.json(chosen)
+}); 
+
+}); 
+
+
 router.get("/api", function(req, res) {
   luxuryCar.selectAll(function(data) {
   var hbsObject = {

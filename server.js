@@ -1,9 +1,23 @@
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+const exphbs = require("express-handlebars");
+const cookieParser = require('cookie-parser');
+const PORT = process.env.PORT || 8080;
 
-var PORT = process.env.PORT || 8080;
+// required for passport
+const session = require('express-session');
+const passport = require('passport');
+const flash = require('connect-flash');
 
-var app = express();
+// Import user routes
+const userRoutes = require('./controllers/users_controller');
+
+// Import routes and give the server access to them.
+const routes = require("./controllers/luxuryCars_controller.js");
+
+// Passport Config
+require('./config/passport')(passport);
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname+"/public"));
@@ -15,15 +29,45 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Set Handlebars.
-var exphbs = require("express-handlebars");
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/luxuryCars_controller.js");
+app.use(cookieParser('528259c2-3056-4022-a914-4bda76a1b4f7'));
+
+// configure Express session
+app.use(session({
+  secret: '528259c2-3056-4022-a914-4bda76a1b4f7',
+  resave: true,
+  saveUninitialized: true,
+  cookie: { httpOnly: true }
+}));
+
+
+// Initialize Password Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
+app.use(function (err, req, res, next) {
+  if (err) {
+    console.error(err);
+  }
+  return next();
+});
 
 app.use(routes);
+
+app.use('/user/', userRoutes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
