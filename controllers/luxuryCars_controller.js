@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var router = express.Router();
 
+
 var multer = require("multer");
 
 var storage = multer.diskStorage({
@@ -41,12 +42,10 @@ router.get("/", function(req, res) {
     console.log("inside the router.get function of luxuryCars_controller.js")
     res.render("index");
 });
-
 router.get("/mainform", function(req, res) {
   res.render("mainform");
 
 });
-
 
 router.get("/questionnaire", function(req, res) {
   //adding console.log to make debug easier for the team
@@ -75,6 +74,7 @@ router.get("/api/my_choice/:id", function(req, res) {
     console.log(hbsObject);
     res.render("index", hbsObject);
   }); 
+
 });
 router.post("/api/cars", upload.single('carImg'), function(req, res) {
   console.log(req.file)

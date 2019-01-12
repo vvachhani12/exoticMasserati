@@ -2,6 +2,7 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo bar">carSwap</a>
             <ul id="navBar" class="right hide-on-med-and-down">
+
                 <li><a href="/">Link to home</a></li>
                 <li><a href="./rentCar">Rent A Car</a></li>
                 <li><a href="./questionnaire">Car Questionnaire</a></li>
@@ -11,13 +12,17 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s12">
+       <div class="col s12">
             <div class="card horizontal">
                 <div class="card-image">
                     <img src="/assets/img/rentyourcar.png" alt="">
                 </div>
                 {{!-- Jemall removed [action="#" and added onSubmit="handleFormSubmit(this); return false;" for onClick event --}}
+
+                <form class="card-stacked" onSubmit="handleFormSubmit(this); return false;">
+        ////CHECK CODE HERe 
                 <form class="card-stacked"  enctype="multipart/form-data" action="/api/cars" method="POST">
+
                     <div class="card-content">
                         <div class="row">
                             <div class="input-field col s4">
@@ -49,6 +54,7 @@
                                     <option value="Excellent">Excellent</option>
                                     <option value="Good">Good</option>
                                     <option value="Fair">Fair</option>
+
                                 </select>
                                 <label>Car Condition</label>
                             </div>
@@ -72,9 +78,7 @@
                                 <label for="car_rate">Car Rate</label>
                             </div>
                         </div>
-
                         <div class="row">
-
                             <div class="input-field col s4">
                                 <input id="start_date" type="text" class="datepicker" name="start_date">
                                 <label for="start_date">Start Date</label>
@@ -99,6 +103,7 @@
             <!-- Modal Trigger -->
             {{!-- <button data-target="modal1" class="btn modal-trigger">Modal</button> --}}
             {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> --}}
+
 
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
@@ -155,6 +160,7 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var select_elems = document.querySelectorAll('select');
@@ -163,6 +169,7 @@
         var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
     });
     // Date picker date format needs to be 2018-01-01
+
 
        // code for sending form data to  post route
        function handleFormSubmit(form) {
@@ -183,6 +190,16 @@
                     condition: $('#car_condition').val().trim()
                     }
           // Send the POST request.
+
+        //console.log(newCarToAdd);
+          //$.ajax("/api/cars", {
+            //type: "POST",
+            //data: newCarToAdd
+          //}).then(
+            //function() {
+              //console.log("inside mainform.hanldbars script ajax POST request and sending post then reload");
+              // Reload the page to get the updated list
+
         
         $('.modal').modal();
         //var data = new FormData(jQuery('form')[0]);

@@ -92,20 +92,46 @@ var orm = {
     var queryString = "SELECT DISTINCT car_Model FROM cars WHERE ?";
     console.log(queryString);
     connection.query(queryString,
-      [
-        
         {
           car_Make: carMake
-        }
-      ],
+        },
       function (err, result) {
         if (err) throw err;
         cb(result);
         console.log(result);
       });
 
+  },
+
+  getUserByObject: function(obj, cb) {
+    let queryString = "SELECT * FROM users WHERE ?";
+    // console.log(queryString);
+    // console.log(obj);
+    connection.query(queryString,
+      obj , function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        cb(result[0]);
+      });
+  },
+
+  createUser: function(newUser, cb) {
+    let queryString = "INSERT INTO users SET ?";
+    console.log(queryString);
+    connection.query(queryString,
+      {
+        Password: newUser.password,
+        Name: newUser.name,
+        Lastname: newUser.lastname,
+        Email: newUser.email
+      },
+      function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        cb(result);
+      });
   }
-}
+};
 
 
 
