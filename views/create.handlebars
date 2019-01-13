@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="./assets/img/rentyourcar.png" alt="">
+                </div>
+                <form action="#" class="card-stacked">
+                    <div class="card-content">
+                        <div class="row">
+
+                            <div class="input-field col s4">
+                                <input id="car_make" type="text" class="validate">
+                                <label for="car_make">Car Make</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="car_model" type="text" class="validate">
+                                <label for="car_model">Car Model</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="car_year" type="text" class="validate">
+                                <label for="car_year">Car Year</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="transmission_type" type="text" class="validate">
+                                <label for="transmission_type">Transmission Type</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <select id="car_condition">
+                                    <option value="" disabled selected>Condition</option>
+                                    <option value="New">New</option>
+                                    <option value="Excellent">Excellent</option>
+                                    <option value="Good">Good</option>
+                                </select>
+                                <label>Car Condition</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="car_miles" type="text" class="validate">
+                                <label for="car_miles">Car Miles</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="car_img" type="text" class="validate">
+                                <label for="car_img">Car Image Link</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="car_rate" type="text" class="validate">
+                                <label for="car_rate">Car Rate</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="input-field col s4">
+                                <input id="start_date" type="text" class="datepicker">
+                                <label for="start_date">Start Date</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="end_date" type="text" class="datepicker">
+                                <label for="end_date">End Date</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="availability" type="text" class="validate">
+                                <label for="availability">Availability</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var select_elems = document.querySelectorAll('select');
+        var select_instances = M.FormSelect.init(select_elems);
+
+        var picker_elems = document.querySelectorAll('.datepicker');
+        var picker_instances = M.Datepicker.init(picker_elems);
+    });
+</script>
