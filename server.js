@@ -7,17 +7,10 @@ const PORT = process.env.PORT || 8080;
 
 // required for passport
 const session = require('express-session');
-const passport = require('passport');
 const flash = require('connect-flash');
-
-// Import user routes
-const userRoutes = require('./controllers/users_controller');
 
 // Import routes and give the server access to them.
 const routes = require("./controllers/luxuryCars_controller.js");
-
-// Passport Config
-require('./config/passport')(passport);
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname+"/public"));
@@ -42,11 +35,6 @@ app.use(session({
   cookie: { httpOnly: true }
 }));
 
-
-// Initialize Password Middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
 // Connect flash
 app.use(flash());
 
@@ -66,8 +54,6 @@ app.use(function (err, req, res, next) {
 });
 
 app.use(routes);
-
-app.use('/user/', userRoutes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

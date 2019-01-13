@@ -17,12 +17,6 @@ CREATE TABLE cars (
     car_Condition VARCHAR(255),
     car_ImageURL VARCHAR(255),
     car_Spare1 VARCHAR(255),
-    car_Spare2 VARCHAR(255),
-    car_Spare3 VARCHAR(255),
-    car_Spare4 VARCHAR(255),
-    car_Spare5 INT,
-    car_Spare6 INT,
-    car_Spare7 INT,
     PRIMARY KEY (id)
 );
 

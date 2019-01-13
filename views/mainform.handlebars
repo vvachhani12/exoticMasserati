@@ -17,7 +17,7 @@
                     <img src="/assets/img/rentyourcar.png" alt="">
                 </div>
                 {{!-- Jemall removed [action="#" and added onSubmit="handleFormSubmit(this); return false;" for onClick event --}}
-                <form class="card-stacked"  enctype="multipart/form-data" action="/api/cars" method="POST">
+                <form id="carForm" class="card-stacked"  enctype="multipart/form-data" action="/api/cars" method="POST">
                     <div class="card-content">
                         <div class="row">
                             <div class="input-field col s4">
@@ -162,12 +162,13 @@
         var picker_elems = document.querySelectorAll('.datepicker');
         var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
     });
+
+    $(document).ready(function(){
+        $("#carForm").on("submit",function(){
+            $("#modal1").modal();
+        })
+    })
     
-    // Date picker date format needs to be 2018-01-01
-        
-
-       // code for sending form data to  post route
-
-        //end of code added for testing post route
+    
    
 </script>
