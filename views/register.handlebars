@@ -1,0 +1,40 @@
+<section class="register-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 register-sec">
+                <h2 class="text-center">Register Now</h2>
+                <form class="register-form" method="POST" action="/user/register">
+                    <div class="form-group">
+                        <label for="name" class="text-uppercase">Name</label>
+                        <input type="name" id="name" name="name" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname" class="text-uppercase">Lastname</label>
+                        <input type="name" id="lastname" name="lastname" class="form-control" placeholder="Lastname">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="text-uppercase">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="text-uppercase">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                            aria-describedby="passwordHelpBlock">
+                        <small id="passwordHelpBlock" class="form-text text-muted">
+                            Your password must be minimum of 6 characters long.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password2" class="text-uppercase">Confirm Password</label>
+                        <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password">
+                    </div>
+
+                    <div class="form-check">
+                        <button type="submit" class="btn btn-register float-right">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8 banner-sec">
+            </div>
+        </div>
+</section>
