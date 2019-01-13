@@ -28,3 +28,12 @@ CREATE TABLE users (
     Email VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE users (
+    Id INT NOT NULL AUTO_INCREMENT,
+    Password VARCHAR(255) NOT NULL,
+    Name VARCHAR(255) NOT NULL,
+    Lastname VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);

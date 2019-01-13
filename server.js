@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser');
 const PORT = process.env.PORT || 8080;
 
 // required for passport
-const session = require('express-session');
+const session = require('express-session')
 const flash = require('connect-flash');
 
 // Import routes and give the server access to them.
@@ -54,6 +54,8 @@ app.use(function (err, req, res, next) {
 });
 
 app.use(routes);
+
+app.use('/user/', userRoutes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

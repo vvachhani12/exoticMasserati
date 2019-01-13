@@ -2,6 +2,7 @@
         <div class="nav-wrapper">
             <a href="#" class="brand-logo bar">carSwap</a>
             <ul id="navBar" class="right hide-on-med-and-down">
+
                 <li><a href="/">Link to home</a></li>
                 <li><a href="./rentCar">Rent A Car</a></li>
                 <li><a href="./questionnaire">Car Questionnaire</a></li>
@@ -11,7 +12,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s12">
+       <div class="col s12">
             <div class="card horizontal">
                 <div class="card-image">
                     <img src="/assets/img/rentyourcar.png" alt="">
@@ -49,6 +50,7 @@
                                     <option value="Excellent">Excellent</option>
                                     <option value="Good">Good</option>
                                     <option value="Fair">Fair</option>
+
                                 </select>
                                 <label>Car Condition</label>
                             </div>
@@ -72,9 +74,7 @@
                                 <label for="car_rate">Car Rate</label>
                             </div>
                         </div>
-
                         <div class="row">
-
                             <div class="input-field col s4">
                                 <input id="start_date" type="text" class="datepicker" name="start_date">
                                 <label for="start_date">Start Date</label>
@@ -99,6 +99,7 @@
             <!-- Modal Trigger -->
             {{!-- <button data-target="modal1" class="btn modal-trigger">Modal</button> --}}
             {{!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> --}}
+
 
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
@@ -155,6 +156,7 @@
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var select_elems = document.querySelectorAll('select');
@@ -162,13 +164,9 @@
         var picker_elems = document.querySelectorAll('.datepicker');
         var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
     });
-
     $(document).ready(function(){
         $("#carForm").on("submit",function(){
             $("#modal1").modal();
         })
     })
-    
-    
-   
 </script>

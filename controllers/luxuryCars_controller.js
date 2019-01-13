@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
   },
   filename: function(req, file, cb){
     console.log("file exsist?")
-    cb(null, new Date().toLocaleDateString()+"-"+file.originalname);
+    cb(null, new Date().toISOString()+"-"+file.originalname);
   }
 })
 
