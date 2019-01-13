@@ -18,11 +18,7 @@
                     <img src="/assets/img/rentyourcar.png" alt="">
                 </div>
                 {{!-- Jemall removed [action="#" and added onSubmit="handleFormSubmit(this); return false;" for onClick event --}}
-
-                <form class="card-stacked" onSubmit="handleFormSubmit(this); return false;">
-    
-                {{!-- <form class="card-stacked"  enctype="multipart/form-data" action="/api/cars" method="POST"> --}}
-
+                <form id="carForm" class="card-stacked"  enctype="multipart/form-data" action="/api/cars" method="POST">
                     <div class="card-content">
                         <div class="row">
                             <div class="input-field col s4">
@@ -94,7 +90,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                <button class="btn waves-effect waves-light right" type="submit" name="action" data-target="modal1">Submit
+                <button class="btn waves-effect waves-light right" type="submit" name="action" data-target="modal1" id="submit">Submit
                             <i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -168,58 +164,9 @@
         var picker_elems = document.querySelectorAll('.datepicker');
         var picker_instances = M.Datepicker.init(picker_elems, { format: 'yyyy-mm-dd' });
     });
-    // Date picker date format needs to be 2018-01-01
-
-
-       // code for sending form data to  post route
-       function handleFormSubmit(form) {
-           //debugger;
-        console.log("submit button clicked")
-            var newCarToAdd = {
-                    carMake: $("#car_make").val().trim(),
-                    carModel: $("#car_model").val().trim(),
-                    carYear: $("#car_year").val().trim(),
-                    transmission: $("#transmission_type").val().trim(),
-                    startDate: $("#start_date").val(),
-                    endDate: $("#end_date").val(),
-                    miles: $("#car_miles").val().trim(),
-                    carImg: $("#imageFile").val(),
-                    carImg: $("#car_img").val().trim(),
-                    carRate: $("#car_rate").val().trim(),
-                    availability: 1,
-                    condition: $('#car_condition').val().trim()
-                    }
-          // Send the POST request.
-
-        //console.log(newCarToAdd);
-          //$.ajax("/api/cars", {
-            //type: "POST",
-            //data: newCarToAdd
-          //}).then(
-            //function() {
-              //console.log("inside mainform.hanldbars script ajax POST request and sending post then reload");
-              // Reload the page to get the updated list
-
-        
-        $('.modal').modal();
-        //var data = new FormData(jQuery('form')[0]);
-        //  console.log(data)
-        console.log(newCarToAdd);
-          $.ajax("/api/cars", {
-            type: "POST",
-            //data: newCarToAdd
-            success: function(data){
-            }
-          }).then(
-            function(data) {
-              console.log("inside mainform.hanldbars script ajax POST request and sending post then reload");
-              // Reload the page to get the updated list
-              console.log(data)
-              location.reload();
-            }
-          );
-        }
-
-        //end of code added for testing post route
-   
+    $(document).ready(function(){
+        $("#carForm").on("submit",function(){
+            $("#modal1").modal();
+        })
+    })
 </script>

@@ -86,6 +86,7 @@ router.post("/api/cars", upload.single('carImg'), function(req, res) {
     // res.json({ id: result.insertId });
     // res.json({ id: "Works" });
     // res.render("mainform");
+    res.redirect("/mainform");
    });
 });
 

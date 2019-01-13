@@ -17,12 +17,15 @@ CREATE TABLE cars (
     car_Condition VARCHAR(255),
     car_ImageURL VARCHAR(255),
     car_Spare1 VARCHAR(255),
-    car_Spare2 VARCHAR(255),
-    car_Spare3 VARCHAR(255),
-    car_Spare4 VARCHAR(255),
-    car_Spare5 INT,
-    car_Spare6 INT,
-    car_Spare7 INT,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE users (
+    Id INT NOT NULL AUTO_INCREMENT,
+    Password VARCHAR(255) NOT NULL,
+    Name VARCHAR(255) NOT NULL,
+    Lastname VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
