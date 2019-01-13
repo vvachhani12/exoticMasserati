@@ -55,7 +55,6 @@ app.use(function (err, req, res, next) {
 
 app.use(routes);
 
-app.use('/user/', userRoutes);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
