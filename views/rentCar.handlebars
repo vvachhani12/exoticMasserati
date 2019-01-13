@@ -50,6 +50,7 @@
                                     Engine Type: {{this.transmission_Type}}<br/>
                                     {{this.car_Miles}} miles <br/>
                                     Car Condition: {{this.car_Condition}} <br/>
+                                    Car Price: {{this.car_Rates}}<br/>
                                     </h6>
                                 </div>                                
                             </li>                                
@@ -75,16 +76,10 @@
                                         Engine Type: {{this.transmission_Type}}<br/>
                                         {{this.car_Miles}} miles <br/>
                                         Car Condition: {{this.car_Condition}} <br/>
+                                        Car Price: {{this.car_Rates}}<br/>
                                         <div>
                                             <img alt="Car Pic" src="uploads/{{this.car_ImageURL}}" class="img-circle img-responsive">
                                         </div>
-
-                                <div class="card-content">
-                                    <h6>{{this.id}}. {{this.car_Year}} {{this.car_Make}} {{this.car_Model}}<br/>
-                                    Engine Type: {{this.transmission_Type}}<br/>
-                                    {{this.car_Miles}} miles <br/>
-                                    Car Condition: {{this.car_Condition}} <br/>
-                                    </h6>
                                 </li>
                             {{/unless}}
                         </ul>
