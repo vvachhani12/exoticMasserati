@@ -9,7 +9,7 @@ if(process.env.JAWSDB_URL){
     port: 3306,
     user: "root",
     password: "",
-    database: "exotic_Cars_DB"
+    database: "cx29116gxfjfb0xg"
   });
 }
 
