@@ -8,4 +8,6 @@
   
   Demo: https://mighty-springs-82404.herokuapp.com/
   
-  
+  ![](images/Screenshot1.png)
+  ![](images/Screenshot2.png)
+  ![](images/Screenshot3.png)
